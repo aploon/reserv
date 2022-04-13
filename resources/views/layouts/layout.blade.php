@@ -124,7 +124,17 @@ License: You must have a valid license purchased only from themeforest(the above
 
                 <!--begin::Content-->
 
-                    @yield('main-content')
+                    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+                        <!--begin::Subheader-->
+                        
+                        @yield('subheader')
+
+                        <!--end::Subheader-->
+
+                        @yield('main-content')
+
+                    </div>
 
                 <!--end::Content-->
 

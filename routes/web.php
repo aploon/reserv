@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/wlc', function () {
     return view('welcome');
 });
 
-Route::get('/wlc', function () {
+Route::get('/', function () {
     return view('index');
 });
