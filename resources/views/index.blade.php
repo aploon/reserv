@@ -122,8 +122,8 @@
         </div>
     </div>
     <!--end::Subheader-->
-    <!--begin::Entry-->
-    <div class="d-flex flex-column-fluid">
+    <!-- begin::Entry-->
+    {{-- <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
             <!--begin::Dashboard-->
@@ -3222,8 +3222,8 @@
             <!--end::Dashboard-->
         </div>
         <!--end::Container-->
-    </div>
-    <!--end::Entry-->
+    </div> --}}
+    <!--end::Entry -->
 </div>
 
 @endsection
