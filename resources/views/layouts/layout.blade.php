@@ -58,8 +58,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--begin::Layout Themes(used by all pages)-->
     <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/css/themes/layout/header/base/light5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/css/themes/layout/header/menu/light5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/css/themes/layout/brand/dark5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/css/themes/layout/aside/dark5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/css/themes/layout/brand/light5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/css/themes/layout/aside/light5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{ asset("template/assets/theme/html/demo1/dist/assets/media/logos/favicon.ico") }}" />
     <!-- Hotjar Tracking Code for keenthemes.com -->

@@ -3230,10 +3230,303 @@
     </div> --}}
     <!--end::Entry -->
 
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border-radius: 8px !important;">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">Aujourd'hui</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border: 8px;">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">Demain</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border: 8px;">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">Après-demain</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border: 8px;">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">15/04/2022</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div>
+
+        </div>
+
+
+        <!--begin::Pagination-->
+        {{-- <div class="card card-custom">
+            <div class="card-body py-7">
+                <!--begin::Pagination-->
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="d-flex flex-wrap mr-3">
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-double-arrow-back icon-xs"></i>
+                        </a>
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-arrow-back icon-xs"></i>
+                        </a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">23</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary active mr-2 my-1">24</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">25</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">26</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">27</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">28</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-arrow-next icon-xs"></i>
+                        </a>
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-double-arrow-next icon-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--end:: Pagination-->
+            </div>
+        </div> --}}
+        <!--end::Pagination-->
+    </div>
+
 @endsection
 
 </div>
 
 @section('footer')
+    
+@endsection
+
+@section('tools')
     
 @endsection
