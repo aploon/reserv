@@ -84,3 +84,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 Pour générer une clé unique qui sera utilisé par votre application, exécuté la commande
 - `php artisan key:generate`
+
+> Votre application est alors près pour être exécuter
