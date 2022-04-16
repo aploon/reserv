@@ -63,9 +63,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Comment cloner un projet laravel à partir d'un dépot github `by Ap`
+## Comment cloner un projet laravel à partir d'un dépot github `by Aploon`
 
-### Cloner le dépot distant avec `git clone`
+### Cloner le dépot distant avec 
+- `git clone`
 
 ### Installer les dépendances du projet
 
@@ -74,12 +75,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ### Ajouter le fichier [.env] au projet
 
-> Le fichier [.env] dans les projets laravel contient des configurations necessaire pour l'exécution du projet
-> Le fichier [.env] contient une clé d'encryption `APP KEY` unique pour chaque projet laravel. Il est utilisé pour encoder certains éléments de votre application
-> Etant donné que le fichier [.env] n'est pas disponible sur le dépot (le fichier [.gitignore] empèche cela), nous allons le créer nous même.
-> Ensuite, copier le contenu du fichier [.env.example] dans le fichier [.env] que nous venons de créer
+- Le fichier [.env] dans les projets laravel contient des configurations necessaire pour l'exécution du projet
+- Le fichier [.env] contient une clé d'encryption `APP KEY` unique pour chaque projet laravel. Il est utilisé pour encoder certains éléments de votre application
+- Etant donné que le fichier [.env] n'est pas disponible sur le dépot (le fichier [.gitignore] empèche cela), nous allons le créer nous même.
+- Ensuite, copier le contenu du fichier [.env.example] dans le fichier [.env] que nous venons de créer
 
 ### Générer automatiquement la clé d'encryption
 
 Pour générer une clé unique qui sera utilisé par votre application, exécuté la commande
-`php artisan key:generate`
+- `php artisan key:generate`
