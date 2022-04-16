@@ -7,6 +7,30 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Comment cloner un projet laravel à partir d'un dépot github `by Aploon`
+
+### Cloner le dépot distant avec 
+- `git clone`
+
+### Installer les dépendances du projet
+
+- `composer install` Pour installer les paquets nécessaire à l'installation de laravel à partir de [composer](https://laravel.com/docs/9.x#installation-via-composer)
+- `npm install` Pour installer les paquets javascripts nécessaire à l'installation de laravel ([Node js](https://nodejs.org/), [Vue js](https://vuejs.org/)...)
+
+### Ajouter le fichier [.env] au projet
+
+- Le fichier [.env] dans les projets laravel contient des configurations necessaire pour l'exécution du projet
+- Il [.env] contient une clé d'encryption `APP KEY` unique pour chaque projet laravel. Il est utilisé pour encoder certains éléments de votre application
+- Etant donné que le fichier [.env] n'est pas disponible sur le dépot (le fichier [.gitignore] empèche cela), nous allons le créer nous même.
+- Ensuite, copiez le contenu du fichier [.env.example] dans le fichier [.env] que nous venons de créer
+
+### Générer automatiquement la clé d'encryption
+
+Pour générer une clé unique qui sera utilisé par votre application, exécuté la commande
+- `php artisan key:generate`
+
+> Votre application est alors près pour être exécuter
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -62,27 +86,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## Comment cloner un projet laravel à partir d'un dépot github `by Aploon`
-
-### Cloner le dépot distant avec 
-- `git clone`
-
-### Installer les dépendances du projet
-
-- `composer install` Pour installer les paquets nécessaire à l'installation de laravel à partir de [composer](https://laravel.com/docs/9.x#installation-via-composer)
-- `npm install` Pour installer les paquets javascripts nécessaire à l'installation de laravel ([Node js](https://nodejs.org/), [Vue js](https://vuejs.org/)...)
-
-### Ajouter le fichier [.env] au projet
-
-- Le fichier [.env] dans les projets laravel contient des configurations necessaire pour l'exécution du projet
-- Il [.env] contient une clé d'encryption `APP KEY` unique pour chaque projet laravel. Il est utilisé pour encoder certains éléments de votre application
-- Etant donné que le fichier [.env] n'est pas disponible sur le dépot (le fichier [.gitignore] empèche cela), nous allons le créer nous même.
-- Ensuite, copiez le contenu du fichier [.env.example] dans le fichier [.env] que nous venons de créer
-
-### Générer automatiquement la clé d'encryption
-
-Pour générer une clé unique qui sera utilisé par votre application, exécuté la commande
-- `php artisan key:generate`
-
-> Votre application est alors près pour être exécuter
