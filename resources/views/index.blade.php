@@ -3527,6 +3527,7 @@
     
 @endsection
 
-@section('tools')
+@section('tools') 
+    @parent
     
 @endsection
