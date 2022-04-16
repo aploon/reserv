@@ -16,6 +16,7 @@
 
 - `composer install` Pour installer les paquets nécessaire à l'installation de laravel à partir de [composer](https://laravel.com/docs/9.x#installation-via-composer)
 - `npm install` Pour installer les paquets javascripts nécessaire à l'installation de laravel ([Node js](https://nodejs.org/), [Vue js](https://vuejs.org/)...)
+> Le deuxième point est optionnel, nous n'en aurons pas besoin ici
 
 ### Ajouter le fichier [.env] au projet
 
