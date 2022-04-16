@@ -76,9 +76,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ### Ajouter le fichier [.env] au projet
 
 - Le fichier [.env] dans les projets laravel contient des configurations necessaire pour l'exécution du projet
-- Le fichier [.env] contient une clé d'encryption `APP KEY` unique pour chaque projet laravel. Il est utilisé pour encoder certains éléments de votre application
+- Il [.env] contient une clé d'encryption `APP KEY` unique pour chaque projet laravel. Il est utilisé pour encoder certains éléments de votre application
 - Etant donné que le fichier [.env] n'est pas disponible sur le dépot (le fichier [.gitignore] empèche cela), nous allons le créer nous même.
-- Ensuite, copier le contenu du fichier [.env.example] dans le fichier [.env] que nous venons de créer
+- Ensuite, copiez le contenu du fichier [.env.example] dans le fichier [.env] que nous venons de créer
 
 ### Générer automatiquement la clé d'encryption
 
