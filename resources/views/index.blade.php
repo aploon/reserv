@@ -24,8 +24,8 @@
             <div class="d-flex align-items-center">
                 <!--begin::Actions-->
                 <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Today</a>
-                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Month</a>
-                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Year</a>
+                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Months</a>
+                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Years</a>
                 <!--end::Actions-->
                 <!--begin::Daterange-->
                 <a href="#" class="btn btn-sm btn-light font-weight-bold mr-2" id="kt_dashboard_daterangepicker" data-toggle="tooltip" title="Select dashboard daterange" data-placement="left">
@@ -3229,6 +3229,121 @@
         <!--end::Container-->
     </div> --}}
     <!--end::Entry -->
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-4 col-xxl-4">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">Aujourd'hui</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important">
+
+                        <div class="card" style="background-color: #eaeef2">
+                            <!--begin::Header-->
+                            <div class="card-header py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card" style="background-color: #eaeef2">
+                            <!--begin::Header-->
+                            <div class="card-header py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div>
+
+    
+
+        </div>
+
+
+        <!--begin::Pagination-->
+        <div class="card card-custom">
+            <div class="card-body py-7">
+                <!--begin::Pagination-->
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="d-flex flex-wrap mr-3">
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-double-arrow-back icon-xs"></i>
+                        </a>
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-arrow-back icon-xs"></i>
+                        </a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">23</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary active mr-2 my-1">24</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">25</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">26</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">27</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">28</a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-arrow-next icon-xs"></i>
+                        </a>
+                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-double-arrow-next icon-xs"></i>
+                        </a>
+                    </div>
+                    {{-- <div class="d-flex align-items-center">
+                        <select class="form-control form-control-sm text-primary font-weight-bold mr-4 border-0 bg-light-primary" style="width: 75px;">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <span class="text-muted">Displaying 10 of 230 records</span>
+                    </div> --}}
+                </div>
+                <!--end:: Pagination-->
+            </div>
+        </div>
+        <!--end::Pagination-->
+    </div>
 
 @endsection
 
