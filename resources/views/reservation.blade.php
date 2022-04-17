@@ -3242,26 +3242,7 @@
 
         <div class="row">
 
-            <!--begin::Example-->
-            <!--begin::Card-->
-            <div class="card card-custom">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3 class="card-label">Toutes les réservations</h3>
-                    </div>
-                    <div class="card-toolbar">
-                        <a href="#" class="btn btn-light-primary font-weight-bold">
-                            <i class="ki ki-plus icon-md mr-2"></i>Reserver</a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div id="kt_calendar"></div>
-                </div>
-            </div>
-            <!--end::Card-->
-            <!--begin::Code example-->
-
-            {{-- <div class="col-md-4 col-lg-3">
+            <div class="col-md-4 col-lg-3">
                 <!--begin::List Widget 9-->
                 <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border-radius: 8px !important;">
                     <!--begin::Header-->
@@ -3507,7 +3488,7 @@
                     <!--end: Card Body-->
                 </div>
                 <!--end: List Widget 9-->
-            </div> --}}
+            </div>
 
         </div>
 

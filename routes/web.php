@@ -20,3 +20,7 @@ Route::get('/wlc', function () {
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/materiel', function () {
+    return view('materiel');
+});
