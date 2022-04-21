@@ -121,7 +121,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!--end::Aside Top-->
                 <!--begin::Aside Bottom-->
                 <div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"
-                    style="background-image: url({{ asset("template/assets/theme/html/demo1/dist/assets/media/svg/illustrations/login-visual-1.svg") }})">
+                    style="background-image: url({{ asset("template/assets/theme/html/demo1/dist/assets/media/svg/illustrations/login-visual-5.svg") }})">
                 </div>
                 <!--end::Aside Bottom-->
             </div>
@@ -305,7 +305,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
     <!--end::Main-->
     <script>
-        var HOST_URL = "{{ asset("template/assets/theme/html/tools/preview/index.html";
+        var HOST_URL = "{{ asset("template/assets/theme/html/tools/preview/index.html") }}";
     </script>
     <!--begin::Global Config(global config for global JS scripts)-->
     <script>
