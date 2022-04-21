@@ -637,8 +637,8 @@
                     </li>
                 </ul> --}}
                 <!--end::Header Nav-->
-                <div class="topbar">
                 <div class="menu-nav" style="align-items: center">
+
                     <!--begin::Notifications-->
                     <div class="dropdown">
                         <!--begin::Toggle-->
