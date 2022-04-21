@@ -13,7 +13,7 @@ var KTCalendarBasic = function() {
 
             var calendarEl = document.getElementById('kt_calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+                plugins: ['bootstrap', 'interaction', 'dayGrid', 'timeGrid', 'list'],
                 themeSystem: 'bootstrap',
 
                 isRTL: KTUtil.isRTL(),
@@ -26,7 +26,7 @@ var KTCalendarBasic = function() {
 
                 height: 800,
                 contentHeight: 780,
-                aspectRatio: 3,  // see: https://fullcalendar.io/docs/aspectRatio
+                aspectRatio: 3, // see: https://fullcalendar.io/docs/aspectRatio
 
                 nowIndicator: true,
                 now: TODAY + 'T09:25:00', // just for demo
@@ -43,12 +43,32 @@ var KTCalendarBasic = function() {
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
                 navLinks: true,
-                events: [
-                    {
-                        title: 'All Day Event',
+                events: [{
+                        title: 'All Day',
                         start: YM + '-01',
                         description: 'Toto lorem ipsum dolor sit incid idunt ut',
                         className: "fc-event-danger fc-event-solid-warning"
+                    },
+                    {
+                        title: 'All Day',
+                        start: YM + '-01',
+                        description: 'Toto lorem ipsum dolor sit incid idunt ut',
+                        end: YM + '-02',
+                        className: "fc-event-danger fc-event-solid-warning"
+                    },
+                    {
+                        title: 'All Day',
+                        start: YM + '-01',
+                        description: 'Toto lorem ipsum dolor sit incid idunt ut',
+                        end: YM + '-02',
+                        className: "fc-event-danger fc-event-solid-primary"
+                    },
+                    {
+                        title: 'All Day',
+                        start: YM + '-01',
+                        description: 'Toto lorem ipsum dolor sit incid idunt ut',
+                        end: YM + '-02',
+                        className: "fc-event-danger fc-event-solid-light"
                     },
                     {
                         title: 'Reporting',

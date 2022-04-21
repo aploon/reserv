@@ -3557,5 +3557,5 @@
 @endsection
 
 @section('footer-modules')
-<script src="{{ asset('template/assets/theme/html/demo1/dist/assets/js/pages/features/calendar/basic5883.js?v=7.2.9') }}"></script>
+<script src="{{ asset('template/assets/theme/html/demo1/dist/assets/js/pages/features/calendar/basic5883.js') }}"></script>
 @endsection

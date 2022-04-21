@@ -24,3 +24,7 @@ Route::get('/', function () {
 Route::get('/materiel', function () {
     return view('materiel');
 });
+
+Route::get('/reservation', function () {
+    return view('reservation');
+});
