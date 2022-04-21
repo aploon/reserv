@@ -11,7 +11,7 @@
                 <!-- Barre verticale -->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
 
-                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Informatique</div>
+                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Informatiques</div>
 
                 <!-- Barre verticale -->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
@@ -24,8 +24,8 @@
             <div class="d-flex align-items-center">
                 <!--begin::Actions-->
                 <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Today</a>
-                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Months</a>
-                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Years</a>
+                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Month</a>
+                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Year</a>
                 <!--end::Actions-->
                 <!--begin::Daterange-->
                 <a href="#" class="btn btn-sm btn-light font-weight-bold mr-2" id="kt_dashboard_daterangepicker"
@@ -3242,11 +3242,6 @@
 
         <div class="row">
 
-<<<<<<< HEAD
-            <div class="col-lg-4 col-xxl-4">
-                <!--begin::List Widget 9-->
-                <div class="card card-custom card-stretch gutter-b">
-=======
             <!--begin::Example-->
             <!--begin::Card-->
             <div class="card card-custom">
@@ -3269,7 +3264,6 @@
             {{-- <div class="col-md-4 col-lg-3">
                 <!--begin::List Widget 9-->
                 <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border-radius: 8px !important;">
->>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
                     <!--begin::Header-->
                     <div class="card-header align-items-center border-0">
                         <h3 class="card-title align-items-start flex-column">
@@ -3289,19 +3283,11 @@
                     </div>
                     <!--end::Header-->
                     <!--begin::Body-->
-<<<<<<< HEAD
-                    <div class="card-body" style="padding: 0 15px !important">
-
-                        <div class="card" style="background-color: #eaeef2">
-                            <!--begin::Header-->
-                            <div class="card-header py-2">
-=======
                     <div class="card-body" style="padding: 0 15px !important;">
 
                         <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
->>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
                                 <h3 class="card-title">
                                     <span class="font-weight-bolder text-dark">Ordinateur</span>
                                 </h3>
@@ -3314,15 +3300,9 @@
                             <!--end: Card Body-->
                         </div>
 
-<<<<<<< HEAD
-                        <div class="card" style="background-color: #eaeef2">
-                            <!--begin::Header-->
-                            <div class="card-header py-2">
-=======
                         <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
->>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
                                 <h3 class="card-title">
                                     <span class="font-weight-bolder text-dark">Ordinateur</span>
                                 </h3>
@@ -3343,9 +3323,6 @@
                 <!--end: List Widget 9-->
             </div>
 
-<<<<<<< HEAD
-    
-=======
             <div class="col-md-4 col-lg-3">
                 <!--begin::List Widget 9-->
                 <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border: 8px;">
@@ -3531,17 +3508,12 @@
                 </div>
                 <!--end: List Widget 9-->
             </div> --}}
->>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
 
         </div>
 
 
         <!--begin::Pagination-->
-<<<<<<< HEAD
-        <div class="card card-custom">
-=======
         {{-- <div class="card card-custom">
->>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
             <div class="card-body py-7">
                 <!--begin::Pagination-->
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -3567,32 +3539,12 @@
                             <i class="ki ki-bold-double-arrow-next icon-xs"></i>
                         </a>
                     </div>
-<<<<<<< HEAD
-                    {{-- <div class="d-flex align-items-center">
-                        <select class="form-control form-control-sm text-primary font-weight-bold mr-4 border-0 bg-light-primary" style="width: 75px;">
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                        </select>
-                        <span class="text-muted">Displaying 10 of 230 records</span>
-                    </div> --}}
-                </div>
-                <!--end:: Pagination-->
-            </div>
-        </div>
-        <!--end::Pagination-->
-    </div>
-
-=======
                 </div>
                 <!--end:: Pagination-->
             </div>
         </div> --}}
         <!--end::Pagination-->
     </div>
->>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
 @endsection
 
 </div>
