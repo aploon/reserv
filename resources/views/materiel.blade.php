@@ -3648,4 +3648,4 @@
 
 @section('footer-modules')
 
-@endsection
+@endsection 
