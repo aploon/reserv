@@ -637,7 +637,11 @@
                     </li>
                 </ul> --}}
                 <!--end::Header Nav-->
+<<<<<<< HEAD
                 <div class="topbar">
+=======
+                <div class="menu-nav" style="align-items: center">
+>>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
 
                     <!--begin::Notifications-->
                     <div class="dropdown">

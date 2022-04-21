@@ -28,25 +28,34 @@
                 <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Years</a>
                 <!--end::Actions-->
                 <!--begin::Daterange-->
-                <a href="#" class="btn btn-sm btn-light font-weight-bold mr-2" id="kt_dashboard_daterangepicker" data-toggle="tooltip" title="Select dashboard daterange" data-placement="left">
-                    <span class="text-muted font-size-base font-weight-bold mr-2" id="kt_dashboard_daterangepicker_title">Today</span>
-                    <span class="text-primary font-size-base font-weight-bolder" id="kt_dashboard_daterangepicker_date">Aug 16</span>
+                <a href="#" class="btn btn-sm btn-light font-weight-bold mr-2" id="kt_dashboard_daterangepicker"
+                    data-toggle="tooltip" title="Select dashboard daterange" data-placement="left">
+                    <span class="text-muted font-size-base font-weight-bold mr-2"
+                        id="kt_dashboard_daterangepicker_title">Today</span>
+                    <span class="text-primary font-size-base font-weight-bolder" id="kt_dashboard_daterangepicker_date">Aug
+                        16</span>
                 </a>
                 <!--end::Daterange-->
                 <!--begin::Dropdowns-->
                 <div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
-                    <a href="#" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="#" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         <span class="svg-icon svg-icon-success svg-icon-lg">
-                                <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Files/File-plus.svg-->
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <polygon points="0 0 24 0 24 24 0 24" />
-                                        <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                                        <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z" fill="#000000" />
-                                    </g>
-                                </svg>
-                                <!--end::Svg Icon-->
-                            </span>
+                            <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Files/File-plus.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path
+                                        d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                    <path
+                                        d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z"
+                                        fill="#000000" />
+                                </g>
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>
                     </a>
                     <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right py-3">
                         <!--begin::Navigation-->
@@ -54,43 +63,43 @@
                             <li class="navi-item">
                                 <a href="#" class="navi-link">
                                     <span class="navi-icon">
-                                            <i class="flaticon2-drop"></i>
-                                        </span>
+                                        <i class="flaticon2-drop"></i>
+                                    </span>
                                     <span class="navi-text">New Group</span>
                                 </a>
                             </li>
                             <li class="navi-item">
                                 <a href="#" class="navi-link">
                                     <span class="navi-icon">
-                                            <i class="flaticon2-list-3"></i>
-                                        </span>
+                                        <i class="flaticon2-list-3"></i>
+                                    </span>
                                     <span class="navi-text">Contacts</span>
                                 </a>
                             </li>
                             <li class="navi-item">
                                 <a href="#" class="navi-link">
                                     <span class="navi-icon">
-                                            <i class="flaticon2-rocket-1"></i>
-                                        </span>
+                                        <i class="flaticon2-rocket-1"></i>
+                                    </span>
                                     <span class="navi-text">Groups</span>
                                     <span class="navi-link-badge">
-                                            <span class="label label-light-primary label-inline font-weight-bold">new</span>
+                                        <span class="label label-light-primary label-inline font-weight-bold">new</span>
                                     </span>
                                 </a>
                             </li>
                             <li class="navi-item">
                                 <a href="#" class="navi-link">
                                     <span class="navi-icon">
-                                            <i class="flaticon2-bell-2"></i>
-                                        </span>
+                                        <i class="flaticon2-bell-2"></i>
+                                    </span>
                                     <span class="navi-text">Calls</span>
                                 </a>
                             </li>
                             <li class="navi-item">
                                 <a href="#" class="navi-link">
                                     <span class="navi-icon">
-                                            <i class="flaticon2-gear"></i>
-                                        </span>
+                                        <i class="flaticon2-gear"></i>
+                                    </span>
                                     <span class="navi-text">Settings</span>
                                 </a>
                             </li>
@@ -98,19 +107,19 @@
                             <li class="navi-item">
                                 <a href="#" class="navi-link">
                                     <span class="navi-icon">
-                                            <i class="flaticon2-magnifier-tool"></i>
-                                        </span>
+                                        <i class="flaticon2-magnifier-tool"></i>
+                                    </span>
                                     <span class="navi-text">Help</span>
                                 </a>
                             </li>
                             <li class="navi-item">
                                 <a href="#" class="navi-link">
                                     <span class="navi-icon">
-                                            <i class="flaticon2-bell-2"></i>
-                                        </span>
+                                        <i class="flaticon2-bell-2"></i>
+                                    </span>
                                     <span class="navi-text">Privacy</span>
                                     <span class="navi-link-badge">
-                                            <span class="label label-light-danger label-rounded font-weight-bold">5</span>
+                                        <span class="label label-light-danger label-rounded font-weight-bold">5</span>
                                     </span>
                                 </a>
                             </li>
@@ -126,7 +135,6 @@
 @endsection
 
 @section('main-content')
-
     <!-- begin::Entry-->
     {{-- <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
@@ -3234,9 +3242,34 @@
 
         <div class="row">
 
+<<<<<<< HEAD
             <div class="col-lg-4 col-xxl-4">
                 <!--begin::List Widget 9-->
                 <div class="card card-custom card-stretch gutter-b">
+=======
+            <!--begin::Example-->
+            <!--begin::Card-->
+            <div class="card card-custom">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3 class="card-label">Toutes les réservations</h3>
+                    </div>
+                    <div class="card-toolbar">
+                        <a href="#" class="btn btn-light-primary font-weight-bold">
+                            <i class="ki ki-plus icon-md mr-2"></i>Reserver</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="kt_calendar"></div>
+                </div>
+            </div>
+            <!--end::Card-->
+            <!--begin::Code example-->
+
+            {{-- <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border-radius: 8px !important;">
+>>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
                     <!--begin::Header-->
                     <div class="card-header align-items-center border-0">
                         <h3 class="card-title align-items-start flex-column">
@@ -3256,11 +3289,19 @@
                     </div>
                     <!--end::Header-->
                     <!--begin::Body-->
+<<<<<<< HEAD
                     <div class="card-body" style="padding: 0 15px !important">
 
                         <div class="card" style="background-color: #eaeef2">
                             <!--begin::Header-->
                             <div class="card-header py-2">
+=======
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+>>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
                                 <h3 class="card-title">
                                     <span class="font-weight-bolder text-dark">Ordinateur</span>
                                 </h3>
@@ -3273,9 +3314,15 @@
                             <!--end: Card Body-->
                         </div>
 
+<<<<<<< HEAD
                         <div class="card" style="background-color: #eaeef2">
                             <!--begin::Header-->
                             <div class="card-header py-2">
+=======
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+>>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
                                 <h3 class="card-title">
                                     <span class="font-weight-bolder text-dark">Ordinateur</span>
                                 </h3>
@@ -3296,13 +3343,205 @@
                 <!--end: List Widget 9-->
             </div>
 
+<<<<<<< HEAD
     
+=======
+            <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border: 8px;">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">Demain</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border: 8px;">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">Après-demain</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <!--begin::List Widget 9-->
+                <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border: 8px;">
+                    <!--begin::Header-->
+                    <div class="card-header align-items-center border-0">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="font-weight-bolder text-dark">15/04/2022</span>
+                        </h3>
+                        <div class="card-toolbar">
+                            <div class="dropdown dropdown-inline">
+                                <a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki ki-bold-more-hor"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <!--end::Navigation-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body" style="padding: 0 15px !important;">
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        <div class="card card-custom mb-5"  style="box-shadow: 0px 0px 0px 0px !important;">
+                            <!--begin::Header-->
+                            <div class="card-header border-0 py-2">
+                                <h3 class="card-title">
+                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                </h3>
+                            </div>
+                            <!--end::Header-->
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                
+                            </div>
+                            <!--end: Card Body-->
+                        </div>
+
+                        
+                        
+                    </div>
+                    <!--end: Card Body-->
+                </div>
+                <!--end: List Widget 9-->
+            </div> --}}
+>>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
 
         </div>
 
 
         <!--begin::Pagination-->
+<<<<<<< HEAD
         <div class="card card-custom">
+=======
+        {{-- <div class="card card-custom">
+>>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
             <div class="card-body py-7">
                 <!--begin::Pagination-->
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -3328,6 +3567,7 @@
                             <i class="ki ki-bold-double-arrow-next icon-xs"></i>
                         </a>
                     </div>
+<<<<<<< HEAD
                     {{-- <div class="d-flex align-items-center">
                         <select class="form-control form-control-sm text-primary font-weight-bold mr-4 border-0 bg-light-primary" style="width: 75px;">
                             <option value="10">10</option>
@@ -3345,10 +3585,25 @@
         <!--end::Pagination-->
     </div>
 
+=======
+                </div>
+                <!--end:: Pagination-->
+            </div>
+        </div> --}}
+        <!--end::Pagination-->
+    </div>
+>>>>>>> 613e284d9bc38935a474d21c8023b5f3c9c4050b
 @endsection
 
 </div>
 
 @section('footer')
-    
+@endsection
+
+@section('tools')
+    @parent
+@endsection
+
+@section('footer-modules')
+<script src="{{ asset('template/assets/theme/html/demo1/dist/assets/js/pages/features/calendar/basic5883.js') }}"></script>
 @endsection
