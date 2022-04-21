@@ -113,8 +113,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!--end::Aside header-->
                     <!--begin::Aside title-->
                     <h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #986923;">
-                        Discover Amazing Metronic
-                        <br />with great build tools
+                        Découvrez notre plateforme
+                        <br />de réservation ultime
                     </h3>
                     <!--end::Aside title-->
                 </div>
@@ -137,11 +137,10 @@ License: You must have a valid license purchased only from themeforest(the above
                         <form class="form" novalidate="novalidate" id="kt_login_signin_form">
                             <!--begin::Title-->
                             <div class="pb-13 pt-lg-0 pt-5">
-                                <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Welcome to
-                                    Metronic</h3>
-                                <span class="text-muted font-weight-bold font-size-h4">New Here?
+                                <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Bienvenu sur Reserv</h3>
+                                <span class="text-muted font-weight-bold font-size-h4">Nouveau ici ?
                                     <a href="javascript:;" id="kt_login_signup"
-                                        class="text-primary font-weight-bolder">Create an Account</a></span>
+                                        class="text-primary font-weight-bolder">Créez un compte</a></span>
                             </div>
                             <!--begin::Title-->
                             <!--begin::Form group-->
@@ -154,10 +153,10 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!--begin::Form group-->
                             <div class="form-group">
                                 <div class="d-flex justify-content-between mt-n5">
-                                    <label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
+                                    <label class="font-size-h6 font-weight-bolder text-dark pt-5">Mot de passe</label>
                                     <a href="javascript:;"
                                         class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
-                                        id="kt_login_forgot">Forgot Password ?</a>
+                                        id="kt_login_forgot">Mot de passe oublié ?</a>
                                 </div>
                                 <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg"
                                     type="password" name="password" autocomplete="off" />
@@ -166,8 +165,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!--begin::Action-->
                             <div class="pb-lg-0 pb-5">
                                 <button type="button" id="kt_login_signin_submit"
-                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Sign
-                                    In</button>
+                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Connexion</button>
                                 <button type="button"
                                     class="btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg">
                                     <span class="svg-icon svg-icon-md">
@@ -188,7 +186,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 fill="#EB4335" />
                                         </svg>
                                         <!--end::Svg Icon-->
-                                    </span>Sign in with Google</button>
+                                    </span>Connexion avec Google</button>
                             </div>
                             <!--end::Action-->
                         </form>
@@ -201,9 +199,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <form class="form" novalidate="novalidate" id="kt_login_signup_form">
                             <!--begin::Title-->
                             <div class="pb-13 pt-lg-0 pt-5">
-                                <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Sign Up</h3>
-                                <p class="text-muted font-weight-bold font-size-h4">Enter your details to create your
-                                    account</p>
+                                <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">S'inscrire</h3>
+                                <p class="text-muted font-weight-bold font-size-h4">Entrez vos coordonnées pour créer votre compte</p>
                             </div>
                             <!--end::Title-->
                             <!--begin::Form group-->
