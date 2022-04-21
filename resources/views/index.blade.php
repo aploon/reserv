@@ -11,7 +11,7 @@
                 <!-- Barre verticale -->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
 
-                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Informatique</div>
+                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Informatiques</div>
 
                 <!-- Barre verticale -->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
