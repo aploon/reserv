@@ -28,3 +28,7 @@ Route::get('/materiel', function () {
 Route::get('/reservation', function () {
     return view('reservation');
 });
+
+Route::get('/connexion', function () {
+    return view('login');
+});
