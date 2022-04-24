@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservation', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->string("libelle");
             $table->date("date_reservation");
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger("materiel_id");
             $table->unsignedBigInteger("utilisateur_id");
             
-            $table->foreign("materiel_id")->references("id")->on("materiel");
-            $table->foreign("utilisateur_id")->references("id")->on("utilisateur");
+            $table->foreign("materiel_id")->references("id")->on("materiels");
+            $table->foreign("utilisateur_id")->references("id")->on("utilisateurs");
             
             $table->timestamps();
         });

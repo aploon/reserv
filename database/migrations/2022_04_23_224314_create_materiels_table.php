@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('materiel', function (Blueprint $table) {
+        Schema::create('materiels', function (Blueprint $table) {
             $table->id();
             $table->string("nom");
             $table->integer("num_serie");
             $table->integer("qte");
             $table->unsignedBigInteger("categorie_id");
-            $table->foreign("categorie_id")->references("id")->on("categorie");
+            $table->foreign("categorie_id")->references("id")->on("categories");
             $table->timestamps();
         });
     }

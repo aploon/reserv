@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('image', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string("nom");
             $table->string("chemin");
             $table->unsignedBigInteger("materiel_id");
-            $table->foreign("materiel_id")->references("id")->on("materiel");
+            $table->foreign("materiel_id")->references("id")->on("materiels");
             $table->timestamps();
         });
     }
