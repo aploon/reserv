@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("nom");
             $table->string("prenom");
-            $table->enum("sexe",  ["Masculin", "Féminin", "Indefini"]);
+            $table->string("sexe");
             $table->string("telephone");
             $table->string("email");
             $table->timestamps();
