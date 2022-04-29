@@ -70,7 +70,7 @@
                         <ul class="menu-subnav">
 
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="/materiel" class="menu-link">
+                                <a href="{{ Route('materiel') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -79,7 +79,7 @@
                             </li>
 
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="/materiel" class="menu-link">
+                                <a href="{{ Route('materiel') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -88,7 +88,7 @@
                             </li>
 
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="/materiel" class="menu-link">
+                                <a href="{{ Route('materiel') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -97,7 +97,7 @@
                             </li>
 
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="/materiel" class="menu-link">
+                                <a href="{{ Route('materiel') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -106,7 +106,7 @@
                             </li>
 
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="/materiel" class="menu-link">
+                                <a href="{{ Route('materiel') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -115,7 +115,7 @@
                             </li>
 
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="/materiel" class="menu-link">
+                                <a href="{{ Route('materiel') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -124,7 +124,7 @@
                             </li>
 
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="/materiel" class="menu-link">
+                                <a href="{{ Route('materiel') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -135,7 +135,7 @@
                     </div>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a href="/reservation" class="menu-link">
+                    <a href="{{ Route('reservation') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                                 <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MaterielController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,22 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/wlc', function () {
-    return view('welcome');
-});
-
 Route::get('/', function () {
     return view('index');
-});
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/materiel', function () {
-    return view('materiel');
-});
+Route::get('materiel', [MaterielController::class, 'index'])->name('materiel');
 
-Route::get('/reservation', function () {
-    return view('reservation');
-});
+Route::get('reservation', [ReservationController::class, 'index'])->name('reservation');
 
-Route::get('/connexion', function () {
-    return view('login');
-});
+require __DIR__.'/auth.php';

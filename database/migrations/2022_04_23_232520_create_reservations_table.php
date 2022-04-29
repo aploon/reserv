@@ -20,10 +20,10 @@ return new class extends Migration
             $table->dateTime("date_debut");
             $table->dateTime("date_fin");
             $table->unsignedBigInteger("materiel_id");
-            $table->unsignedBigInteger("utilisateur_id");
+            $table->unsignedBigInteger("user_id");
             
             $table->foreign("materiel_id")->references("id")->on("materiels");
-            $table->foreign("utilisateur_id")->references("id")->on("utilisateurs");
+            $table->foreign("user_id")->references("id")->on("users");
             
             $table->timestamps();
         });
