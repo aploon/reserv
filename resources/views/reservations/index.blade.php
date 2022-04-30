@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout' ['categories' => $categories])
 
 @section('subheader')
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -3240,118 +3240,9 @@
 
     <div class="container">
 
-        <div class="row d-flex justify-content-center">
+        <div class="row">
 
-            <div class="col-lg-8">
-                <div class="form-group">
-                    <label>Recherchez un matériel</label>
-                    <div class="input-icon input-icon-right">
-                        <input type="text" class="form-control p-7" placeholder="Recherche..." />
-                        <span>
-                            <i class="flaticon2-search-1 icon-md"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-8">
-                <!--begin::List Widget 1-->
-                <div class="card card-custom card-stretch gutter-b">
-                    <!--begin::Header-->
-                    <div class="card-header border-0 pt-5">
-                        <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label font-weight-bolder text-dark">Matériels</span>
-                        </h3>
-                    </div>
-                    <!--end::Header-->
-                    <!--begin::Body-->
-                    <div class="card-body pt-8">
-
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
-                            </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-
-
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
-                            </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-
-
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
-                            </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
-                            </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-
-                    </div>
-                    <!--end::Body-->
-                </div>
-                <!--end::List Widget 1-->
-            </div>
-
-            {{-- <div class="col-md-4 col-lg-3">
+            <div class="col-md-4 col-lg-3">
                 <!--begin::List Widget 9-->
                 <div class="card card-custom card-stretch gutter-b" style="background-color: #dee2e6; border-radius: 8px !important;">
                     <!--begin::Header-->
@@ -3597,7 +3488,7 @@
                     <!--end: Card Body-->
                 </div>
                 <!--end: List Widget 9-->
-            </div> --}}
+            </div>
 
         </div>
 
@@ -3648,4 +3539,4 @@
 
 @section('footer-modules')
 
-@endsection 
+@endsection

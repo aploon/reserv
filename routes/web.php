@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaterielController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
@@ -15,12 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('materiel', [MaterielController::class, 'index'])->name('materiel');
+Route::resource('materiel', MaterielController::class);
 
-Route::get('reservation', [ReservationController::class, 'index'])->name('reservation');
+Route::resource('reservation', ReservationController::class);
 
 require __DIR__.'/auth.php';

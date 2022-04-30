@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout', ['categories' => $categories])
 
 @section('title')
     Reserv
