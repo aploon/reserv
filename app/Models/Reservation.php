@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer $id
  * @property integer $materiel_id
- * @property integer $utilisateur_id
- * @property string $libelle
- * @property string $date_reservation
+ * @property integer $user_id
+ * @property string $nom
+ * @property string $description
  * @property string $date_debut
  * @property string $date_fin
  * @property string $created_at
  * @property string $updated_at
+ * @property User $user
  * @property Materiel $materiel
- * @property Utilisateur $utilisateur
  */
 class Reservation extends Model
 {
@@ -29,7 +29,15 @@ class Reservation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['materiel_id', 'utilisateur_id', 'libelle', 'date_reservation', 'date_debut', 'date_fin', 'created_at', 'updated_at'];
+    protected $fillable = ['materiel_id', 'user_id', 'nom', 'description', 'date_debut', 'date_fin', 'created_at', 'updated_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -37,13 +45,5 @@ class Reservation extends Model
     public function materiel()
     {
         return $this->belongsTo('App\Models\Materiel');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function utilisateur()
-    {
-        return $this->belongsTo('App\Models\Utilisateur');
     }
 }
