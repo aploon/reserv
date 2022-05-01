@@ -12,16 +12,6 @@
                 <!--begin::Page Path-->
                 <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-3">Accueil</h5>
 
-                <!-- Barre verticale -->
-                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
-
-                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Informatiques</div>
-
-                <!-- Barre verticale -->
-                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
-
-                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Projecteur</div>
-                <!--end::Page Path-->
             </div>
             <!--end::Info-->
             <!--begin::Toolbar-->

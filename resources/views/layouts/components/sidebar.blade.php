@@ -96,9 +96,14 @@
                             </li>
 
                             @foreach ($categories as $categorie)
+
+                                <?php 
+                                    $replace = ['É', 'é'];
+                                    $replace_to = ['e', 'e'];
+                                ?>
                                 
-                                <li class="menu-item <?php echo (isset($categorie_name) && $categorie_name == $categorie->nom) ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
-                                    <a href="{{ Route('materiel.show', ['materiel' => $categorie->nom]) }}" class="menu-link">
+                                <li class="menu-item <?php echo (isset($categorie_name) && $categorie_name == str_replace($replace, $replace_to, strtolower($categorie->nom))) ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                                    <a href="{{ Route('materiel.show', ['materiel' => str_replace($replace, $replace_to, strtolower($categorie->nom))]) }}" class="menu-link">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
