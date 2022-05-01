@@ -16,7 +16,7 @@
                 <!-- Barre verticale -->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
 
-                <a href="{{ Route('materiel.index') }}" style="color: #3F4254;">
+                <a href="{{ Route('materiaux.index') }}" style="color: #3F4254;">
                     <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Tous les matériaux</div>
                 </a>
 

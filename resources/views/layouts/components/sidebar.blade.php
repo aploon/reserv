@@ -63,7 +63,7 @@
                     <h4 class="menu-text">Administration</h4>
                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                 </li>
-                <li class="menu-item menu-item-submenu <?php echo (Route::current()->getName() == 'materiel.index' || Route::current()->getName() == 'materiel.store' || Route::current()->getName() == 'materiel.create' || Route::current()->getName() == 'materiel.show' || Route::current()->getName() == 'materiel.update' || Route::current()->getName() == 'materiel.destroy' || Route::current()->getName() == 'materiel.edit') ? 'menu-item-active menu-item-open' : ''; ?>" aria-haspopup="true"
+                <li class="menu-item menu-item-submenu <?php echo (Route::current()->getName() == 'materiaux.index' || Route::current()->getName() == 'materiaux.store' || Route::current()->getName() == 'materiaux.create' || Route::current()->getName() == 'materiaux.show' || Route::current()->getName() == 'materiaux.update' || Route::current()->getName() == 'materiaux.destroy' || Route::current()->getName() == 'materiaux.edit') ? 'menu-item-active menu-item-open' : ''; ?>" aria-haspopup="true"
                     data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -86,8 +86,8 @@
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
-                            <li class="menu-item <?php echo (Route::current()->getName() == 'materiel.index') ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
-                                <a href="{{ Route('materiel.index') }}" class="menu-link">
+                            <li class="menu-item <?php echo (Route::current()->getName() == 'materiaux.index') ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                                <a href="{{ Route('materiaux.index') }}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-dot">
                                         <span></span>
                                     </i>
@@ -103,7 +103,7 @@
                                 ?>
                                 
                                 <li class="menu-item <?php echo (isset($categorie_name) && $categorie_name == str_replace($replace, $replace_to, strtolower($categorie->nom))) ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
-                                    <a href="{{ Route('materiel.show', ['materiel' => str_replace($replace, $replace_to, strtolower($categorie->nom))]) }}" class="menu-link">
+                                    <a href="{{ Route('materiaux.show', ['materiaux' => str_replace($replace, $replace_to, strtolower($categorie->nom))]) }}" class="menu-link">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
                                         </i>
@@ -116,8 +116,8 @@
                         </ul>
                     </div>
                 </li>
-                <li class="menu-item <?php echo Route::current()->getName() == 'reservation.index' ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
-                    <a href="{{ Route('reservation.index') }}" class="menu-link">
+                <li class="menu-item <?php echo Route::current()->getName() == 'reservations.index' ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                    <a href="{{ Route('reservations.index') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
