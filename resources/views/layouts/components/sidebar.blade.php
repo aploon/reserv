@@ -116,7 +116,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="menu-item <?php echo Route::current()->getName() == 'reservation' ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                <li class="menu-item <?php echo Route::current()->getName() == 'reservation.index' ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
                     <a href="{{ Route('reservation.index') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
