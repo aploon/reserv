@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Materiel;
 use Illuminate\Http\Request;
 
 class MaterielController extends Controller
@@ -16,8 +17,12 @@ class MaterielController extends Controller
     public function index(){
 
         $categories = Categorie::all();
+        $materiaux = Materiel::all();
 
-        return view('materiaux.index', ['categories' => $categories]);
+        return view('materiaux.index', [
+            'categories' => $categories,
+            'materiaux' => $materiaux
+        ]);
     }
 
     /**
@@ -47,9 +52,17 @@ class MaterielController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($categorie)
+    public function show($categorie_name)
     {
-        //  
+        $categories = Categorie::all();
+        $categorie = Categorie::where('nom', $categorie_name)->first();
+        $materiaux = $categorie->materiels;
+
+        return view('materiaux.show', [
+            'categorie_name' => $categorie_name,
+            'categories' => $categories,
+            'materiaux' => $materiaux
+        ]);
     }
 
     /**

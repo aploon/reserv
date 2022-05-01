@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('materiels', function (Blueprint $table) {
             $table->id();
             $table->string("nom");
+            $table->mediumText("description");
             $table->integer("num_serie");
             $table->integer("qte");
             $table->unsignedBigInteger("categorie_id");

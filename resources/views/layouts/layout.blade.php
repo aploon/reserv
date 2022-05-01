@@ -108,8 +108,19 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--begin::Aside-->
 
             @if (isset($categories))
-                @component('layouts.components.sidebar', ['categories' => $categories])
-                @endcomponent
+
+                @if (isset($categorie_name))
+                    @component('layouts.components.sidebar', [
+                        'categories' => $categories, 
+                        'categorie_name' => $categorie_name
+                    ])
+                    @endcomponent
+                @else
+                    @component('layouts.components.sidebar', [
+                        'categories' => $categories,
+                    ])
+                    @endcomponent
+                @endif
             @else
                 @component('layouts.components.sidebar')
                 @endcomponent

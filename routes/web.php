@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::resource('materiel', MaterielController::class);
+Route::resource('materiel', MaterielController::class)->middleware(['auth']);
 
-Route::resource('reservation', ReservationController::class);
+Route::resource('reservation', ReservationController::class)->middleware(['auth']);
 
 require __DIR__.'/auth.php';

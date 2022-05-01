@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
  * @property integer $categorie_id
  * @property string $nom
+ * @property string $description
  * @property integer $num_serie
  * @property integer $qte
  * @property string $created_at
@@ -18,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Materiel extends Model
 {
+    use HasFactory;
     /**
      * The "type" of the auto-incrementing ID.
      * 
@@ -28,7 +31,7 @@ class Materiel extends Model
     /**
      * @var array
      */
-    protected $fillable = ['categorie_id', 'nom', 'num_serie', 'qte', 'created_at', 'updated_at'];
+    protected $fillable = ['categorie_id', 'nom', 'description', 'num_serie', 'qte', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

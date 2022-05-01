@@ -3267,83 +3267,25 @@
                     <!--begin::Body-->
                     <div class="card-body pt-8">
 
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
+                        @foreach ($materiaux as $materiel)
+                            <!--begin::Item-->
+                            <div class="d-flex align-items-center mb-10">
+                                <!--begin::Symbol-->
+                                <div class="symbol symbol-100 mr-5">
+                                    @foreach ($materiel->images as $image)
+                                        <img src="{{ asset($image['chemin']) }}" alt="" srcset="">
+                                    @endforeach
+                                </div>
+                                <!--end::Symbol-->
+                                <!--begin::Text-->
+                                <div class="d-flex flex-column font-weight-bold">
+                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">{{ $materiel['nom'] }}</a>
+                                    <span class="text-muted">{{ $materiel['description'] }}</span>
+                                </div>
+                                <!--end::Text-->
                             </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-
-
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
-                            </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-
-
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
-                            </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
-
-                        <!--begin::Item-->
-                        <div class="d-flex align-items-center mb-10">
-                            <!--begin::Symbol-->
-                            <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
-                            </div>
-                            <!--end::Symbol-->
-                            <!--begin::Text-->
-                            <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
-                            </div>
-                            <!--end::Text-->
-                        </div>
-                        <!--end::Item-->
+                            <!--end::Item-->
+                        @endforeach
 
                     </div>
                     <!--end::Body-->
