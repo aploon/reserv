@@ -24,10 +24,13 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $categories = Categorie::all();
+
+        return view('reservations.create', ['categories' => $categories]);
     }
+
 
     /**
      * Store a newly created resource in storage.

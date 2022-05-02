@@ -16,10 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/', [HomeController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
 
-Route::resource('materiaux', MaterielController::class)->middleware(['auth']);
+Route::resource('materiaux', MaterielController::class)
+    ->middleware(['auth']);
 
-Route::resource('reservations', ReservationController::class)->middleware(['auth']);
+Route::resource('reservations', ReservationController::class)
+    ->only(['index', 'store', 'show', 'edit', 'update', 'destroy'])
+    ->middleware(['auth']);
+
+Route::post('reservations/create', [ReservationController::class, 'create'])
+    ->middleware(['auth'])
+    ->name('reservations.create');
 
 require __DIR__.'/auth.php';

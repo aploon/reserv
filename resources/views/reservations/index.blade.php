@@ -6,24 +6,32 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Path-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-3">Accueil</h5>
+                <a href="{{ Route('dashboard') }}">
+                    <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-3">Accueil</h5>
+                </a>
+
+                <!-- Barre verticale -->
+                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
+                <a href="{{ Route('materiaux.index') }}" style="color: #3F4254;">
+                    <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Tous les matériaux</div>
+                </a>
 
                 <!-- Barre verticale -->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
 
-                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Informatique</div>
+                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Réservation</div>
 
-                <!-- Barre verticale -->
-                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
-
-                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Projecteur</div>
                 <!--end::Page Path-->
             </div>
             <!--end::Info-->
             <!--begin::Toolbar-->
             <div class="d-flex align-items-center">
                 <!--begin::Actions-->
-                <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Today</a>
+                <form method="POST" action="{{ Route('reservations.create') }}" class="m-0">
+                    @csrf
+                    <input type="text" name="materiel" hidden value="">
+                    <button type="submit" class="btn btn-sm font-weight-bold font-size-base mr-1" style="background-color: #00AB4E; color: white;">Réserver</button>
+                </form>
                 <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Month</a>
                 <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Year</a>
                 <!--end::Actions-->

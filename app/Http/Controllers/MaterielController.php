@@ -55,7 +55,7 @@ class MaterielController extends Controller
     public function show($categorie_name)
     {
         $categories = Categorie::all();
-        $categorie = Categorie::where('nom', $categorie_name)->first();
+        $categorie = Categorie::where('nom', $categorie_name)->firstOrFail();
         $materiaux = $categorie->materiels;
 
         return view('materiaux.show', [
