@@ -134,7 +134,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!--begin::Signin-->
                     <div class="login-form login-signin">
                         <!--begin::Form-->
-                        <form class="form" novalidate="novalidate" id="kt_login_signin_form" method="POST" action="/mpou">
+                        <form class="form" novalidate="novalidate" id="kt_login_signin_form" method="POST" action="/connexion">
                             @csrf
                             <!--begin::Title-->
                             <div class="pb-13 pt-lg-0 pt-5">

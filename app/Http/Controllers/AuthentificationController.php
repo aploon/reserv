@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\comptes;
+use App\Models\utilisateurs;
 
 class AuthentificationController extends Controller
 {
@@ -11,9 +11,9 @@ class AuthentificationController extends Controller
        return view('login');
    }
    public function authentification(){
-       $comptes= new comptes();
-       $comptes->email=$request->email;
-       $comptes->password=$request->password;
+       $utilisateurs= new utilisateurs();
+       $utilisateurs->email=$request->email;
+       $utilisateurs->password=$request->password;
        $resultat=auth()->attempt([
            'email'=>request('email'),
            'password'=>request('password'),
