@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    Accueil | Reserv | Zéloide
+    Accueil | Reserv | Zélo
 @endsection
 
 @section('subheader')
