@@ -16,19 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/wlc', function () {
     return view('welcome');
 });
-
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/materiel', function () {
-    return view('materiel');
-});
-
-Route::get('/reservation', function () {
-    return view('reservation');
-});
-
-Route::get('/connexion', function () {
-    return view('login');
-});
