@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ConnexionController;
+use App\Http\Controllers\AuthentificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,10 @@ Route::get('/reservation', function () {
     return view('reservation');
 });
 
-Route::get('/connexion', function () {
-    return view('login');
-});
+Route::get('/inscription',[ConnexionController::class,'inscription'])->name('connexion');
+Route::post('/inscription',[ConnexionController::class,'traitementFormulaireInscription']);
+
+Route::get('/connexion',[AuthentificationController::class,'connexion']);
+Route::post('/connexion',[AuthentificationController::class,'authentification']);
+
+

@@ -3291,16 +3291,13 @@
                         <div class="d-flex align-items-center mb-10">
                             <!--begin::Symbol-->
                             <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
+                                <img src="{{ asset('template/assets/img/videoProjecteur.jpg') }}" alt="" srcset="">
                             </div>
                             <!--end::Symbol-->
                             <!--begin::Text-->
                             <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
+                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Vidéo Projecteur</a>
+                                <span class="text-muted">Un vidéoprojecteur est un appareil de projection conçu pour reproduire une source vidéo dite vidéogramme ou informatique, sur un écran séparé ou sur une surface murale blanche.</span>
                             </div>
                             <!--end::Text-->
                         </div>
@@ -3311,16 +3308,13 @@
                         <div class="d-flex align-items-center mb-10">
                             <!--begin::Symbol-->
                             <div class="symbol symbol-100 mr-5">
-                                <img src="{{ asset('template/assets/img/ordinateur.jpg') }}" alt="" srcset="">
+                                <img src="{{ asset('template/assets/img/cle-usb2.jpg') }}" alt="" srcset="">
                             </div>
                             <!--end::Symbol-->
                             <!--begin::Text-->
                             <div class="d-flex flex-column font-weight-bold">
-                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Ordinateur portable</a>
-                                <span class="text-muted">Un ordinateur est un système de traitement de l'information 
-                                    programmable tel que défini par Alan Turing et qui fonctionne par la 
-                                    lecture séquentielle d'un ensemble d'instructions, organisées en programmes, 
-                                    qui lui font exécuter des opérations logiques et arithmétiques.</span>
+                                <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Clé USB</a>
+                                <span class="text-muted">Une clé USB est un support de stockage amovible, inventé dans les années 2000 et prévue pour pouvoir se brancher sur un port USB d'un ordinateur mais qui est, depuis plusieurs années, largement utilisé sur d'autres appareils.</span>
                             </div>
                             <!--end::Text-->
                         </div>

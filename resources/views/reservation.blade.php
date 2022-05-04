@@ -3332,7 +3332,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
                                 <h3 class="card-title">
-                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                    <span class="font-weight-bolder text-dark">Video Projecteur</span>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -3347,7 +3347,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
                                 <h3 class="card-title">
-                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                    <span class="font-weight-bolder text-dark">Switch</span>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -3394,7 +3394,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
                                 <h3 class="card-title">
-                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                    <span class="font-weight-bolder text-dark">Cables RJ45</span>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -3409,7 +3409,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
                                 <h3 class="card-title">
-                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                    <span class="font-weight-bolder text-dark">Routeur</span>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -3434,7 +3434,7 @@
                     <!--begin::Header-->
                     <div class="card-header align-items-center border-0">
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="font-weight-bolder text-dark">15/04/2022</span>
+                            <span class="font-weight-bolder text-dark">27/04/2022</span>
                         </h3>
                         <div class="card-toolbar">
                             <div class="dropdown dropdown-inline">
@@ -3456,7 +3456,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
                                 <h3 class="card-title">
-                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                    <span class="font-weight-bolder text-dark">Ordinateur HP</span>
                                 </h3>
                             </div>
                             <!--end::Header-->
@@ -3471,7 +3471,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 py-2">
                                 <h3 class="card-title">
-                                    <span class="font-weight-bolder text-dark">Ordinateur</span>
+                                    <span class="font-weight-bolder text-dark">Ordinateur Acer</span>
                                 </h3>
                             </div>
                             <!--end::Header-->

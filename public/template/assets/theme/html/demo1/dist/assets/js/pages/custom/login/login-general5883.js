@@ -186,6 +186,7 @@ var KTLogin = function() {
 				}
 		    });
         });
+		
 
         // Handle cancel button
         $('#kt_login_signup_cancel').on('click', function (e) {

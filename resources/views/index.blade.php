@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    Reserv
+    Reserv3
 @endsection
 
 @section('subheader')
@@ -24,7 +24,7 @@
                 <!--end::Page Path-->
             </div>
             <!--end::Info-->
-            <!--begin::Toolbar-->
+            in::Toolbar-->
             <div class="d-flex align-items-center">
                 <!--begin::Actions-->
                 <a href="#" class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1">Today</a>
