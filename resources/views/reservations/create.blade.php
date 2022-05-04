@@ -30,8 +30,14 @@
 
                 <!-- Barre verticale -->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
+                <a href="{{ Route('reservations.index') }}" style="color: #3F4254;">
+                    <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Réservations</div>
+                </a>
 
-                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Réservation</div>
+                <!-- Barre verticale -->
+                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-3 bg-gray-200"></div>
+
+                <div class="text-grey font-weight-bold mt-2 mb-2 mr-3">Création</div>
 
                 <!--end::Page Path-->
             </div>
@@ -161,43 +167,33 @@
                     <div class="card-header">
                         <h3 class="card-title">Réservation</h3>
                     </div>
-                    <form class="form">
+                    <form method="POST" class="form" action="{{ Route('reservations.store') }}">
+
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nom de la réservation *</label>
                                 <?php
                                 $name_reserv = Auth::user()->name . '-reserv';
                                 ?>
-                                <input type="text" value="{{ $name_reserv }}" class="form-control form-control-solid"
+                                <input type="text" name="nom" value="{{ $name_reserv }}" class="form-control form-control-solid"
                                     placeholder="Entrez un nom pour votre réservation" />
                             </div>
 
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control form-control-solid" rows="3"
+                                <textarea name="description" class="form-control form-control-solid" rows="3"
                                     placeholder="Réservation de vidéo-projecteur pour soutenance Année-académique 2021-2022 (Informatique de gestion)"></textarea>
                                 <span class="form-text text-muted">Une description textuelle de l'utilité de la
                                     réservation (Facultatif)</span>
                             </div>
 
                             <div class="form-group">
-                                <select class="" id="materiaux" placeholder="Choisissez le matériel...">
-                                    <option value="">Select a state...</option>
-                                    <option value="AL">Alabama</option>
-                                    <option value="AK">Alaska</option>
-                                    <option value="AZ">Arizona</option>
-                                    <option value="AR">Arkansas</option>
-                                    <option value="CA">California</option>
-                                    <option value="CO">Colorado</option>
-                                    <option value="CT">Connecticut</option>
-                                    <option value="DE">Delaware</option>
-                                    <option value="DC">District of Columbia</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="GA">Georgia</option>
-                                    <option value="HI">Hawaii</option>
-                                    <option value="ID">Idaho</option>
-                                    <option value="IL">Illinois</option>
-                                    <option value="IN">Indiana</option>
+                                <select name="materiel_id" class="" id="materiaux" placeholder="Choisissez le matériel...">
+                                    <option value="">Select a materiel...</option>
+                                    @foreach ($materiaux as $materiel)
+                                        <option <?php echo ($request->materiel_id == $materiel->id)? 'selected' : '' ?> value="{{ $materiel->id }}">{{ $materiel->nom }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -205,7 +201,7 @@
                             <div class="form-group row">
                                 <div class="col">
                                     <div class="input-group date" id="kt_datetimepicker_7_1" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input"
+                                        <input name="date_debut" type="text" class="form-control datetimepicker-input"
                                             placeholder="Date de début" data-target="#kt_datetimepicker_7_1" />
                                         <div class="input-group-append" data-target="#kt_datetimepicker_7_1"
                                             data-toggle="datetimepicker">
@@ -217,7 +213,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="input-group date" id="kt_datetimepicker_7_2" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Date de fin"
+                                        <input name="date_fin" type="text" class="form-control datetimepicker-input" placeholder="Date de fin"
                                             data-target="#kt_datetimepicker_7_2" />
                                         <div class="input-group-append" data-target="#kt_datetimepicker_7_2"
                                             data-toggle="datetimepicker">
@@ -229,9 +225,11 @@
                                 </div>
                             </div>
 
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
                         </div>
                         <div class="card-footer">
-                            <button type="reset" class="btn btn-primary mr-2">Réserver</button>
+                            <button type="submit" class="btn btn-primary mr-2">Réserver</button>
                             <button type="reset" class="btn btn-secondary">Annuler</button>
                         </div>
                     </form>
