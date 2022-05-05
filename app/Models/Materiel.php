@@ -33,12 +33,9 @@ class Materiel extends Model
      */
     protected $fillable = ['categorie_id', 'nom', 'description', 'num_serie', 'qte', 'created_at', 'updated_at'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function images()
+    public function image()
     {
-        return $this->hasMany('App\Models\Image');
+        return $this->hasOne(Image::class);
     }
 
     /**

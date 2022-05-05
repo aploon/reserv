@@ -177,15 +177,40 @@
                             <div class="d-flex align-items-center mb-10">
                                 <!--begin::Symbol-->
                                 <div class="symbol symbol-100 mr-5">
-                                    @foreach ($materiel->images as $image)
-                                        <img src="{{ asset($image['chemin']) }}" alt="" srcset="">
-                                    @endforeach
+                                    <img src="{{ asset($materiel->image->chemin) }}" alt="" srcset="">
                                 </div>
                                 <!--end::Symbol-->
                                 <!--begin::Text-->
-                                <div class="d-flex flex-column font-weight-bold">
-                                    <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">{{ $materiel['nom'] }}</a>
+                                <div class="div_materiel_hover d-flex flex-column font-weight-bold" style="position: relative">
+                                    <a href="#"
+                                        class="text-dark text-hover-primary mb-1 font-size-lg">{{ $materiel['nom'] }}</a>
                                     <span class="text-muted">{{ $materiel['description'] }}</span>
+                                    <?php
+                                    $current_reserv = DB::table('reservations')
+                                        ->where('materiel_id', $materiel->id)
+                                        ->Where(function ($query) {
+                                            $query
+                                                ->where('date_debut', '>=', date('Y-m-d H:i:s', strtotime(now())))
+                                                ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime(now() . '+2 hours')))
+                                                ->orWhere(function ($query) {
+                                                    $query->where('date_fin', '>=', date('Y-m-d H:i:s', strtotime(now())))->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime(now() . '+2 hours')));
+                                                });
+                                        })
+                                        ->get();
+                                    
+                                    $materiel_dispo = $materiel->qte - $current_reserv->count();
+                                    
+                                    ?>
+                                    <div class="div_btn_reserv row d-flex justify-content-end"
+                                        style="position: absolute; bottom: 5px; right: 15px; display: none !important;">
+                                        <button class="btn btn-light btn-text-primary btn-hover-text-primary">{{ $materiel_dispo }}</button>
+                                            <form method="POST" action="{{ Route('reservations.create') }}" class="m-0">
+                                                @csrf
+                                                <input type="text" name="materiel_id" hidden value="{{$materiel->id}}">
+                                                <button type="submit"
+                                                    class="btn btn-primary" style="margin-left: 10px">Réserver</button>
+                                            </form>
+                                    </div>
                                 </div>
                                 <!--end::Text-->
                             </div>
@@ -213,5 +238,24 @@
 @endsection
 
 @section('footer-modules')
+    <script>
+        var div_materiel_hover = document.getElementsByClassName('div_materiel_hover');
+        var div_btn_reserv = document.getElementsByClassName('div_btn_reserv');
 
+        for (let i = 0; i < div_materiel_hover.length; i++) {
+
+            div_materiel_hover[i].addEventListener('mouseover', function(event) {
+
+                div_btn_reserv[i].style.setProperty('display', 'inline-block');
+
+            });
+
+            div_materiel_hover[i].addEventListener('mouseout', function(event) {
+
+                div_btn_reserv[i].style.setProperty('display', 'none', 'important');
+
+            });
+
+        }
+    </script>
 @endsection 
