@@ -167,16 +167,31 @@
     <div class="container">
 
         @if (isset($statut_insert_reserv))
+            
+            @if ($statut_insert_reserv == 'date error')
+                <input type="text" hidden id="statut_insert_reserv_date_error">
+            @endif
+
             @if ($statut_insert_reserv == 'insérer')
                 <input type="text" hidden id="statut_insert_reserv_success">
-            @else
+            @endif
+
+            @if ($statut_insert_reserv == 'non insérer')
                 <input type="text" hidden id="statut_insert_reserv_failled">
             @endif
+
+            @if ($statut_insert_reserv == 'materiel no found')
+                <input type="text" hidden id="statut_insert_reserv_materiel_no_found">
+            @endif
+
+
+            
         @endif
 
         <div class="row">
 
             <?php $compte_materiel_select = 0; ?>
+            <?php $compte_datetimepicker = 0; ?>
 
             <div class="col-md-4 col-lg-3" style="height: fit-content">
                 <!--begin::List Widget 9-->
@@ -206,7 +221,7 @@
 
                         <?php $materiaux_reserv = []; ?>
                         @foreach ($materiaux as $materiel)
-                            @foreach ($materiel->reservations as $reservation)
+                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now())))
                                     <?php $materiaux_reserv[] = $materiel; ?>
                                 @endif
@@ -214,7 +229,8 @@
                         @endforeach
 
                         @foreach (array_unique($materiaux_reserv) as $materiel)
-                            <div class="card card-custom mb-5" style="box-shadow: 0px 0px 0px 0px !important;">
+                            <?php $compte_materiel_select++; ?> <div class="card card-custom mb-5"
+                                style="box-shadow: 0px 0px 0px 0px !important;">
                                 <!--begin::Header-->
                                 <div class="border-0 px-5 pt-5">
                                     <h6 class="">
@@ -227,7 +243,7 @@
                                     <!--begin: Item-->
                                     <div class="d-flex flex-lg-fill">
                                         <div class="symbol-group symbol-hover">
-                                            @foreach ($materiel->reservations as $reservation)
+                                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now())))
                                                     <div class="symbol symbol-30 symbol-circle" data-toggle="tooltip"
                                                         title="{{ $reservation->user->name }}">
@@ -252,13 +268,14 @@
                                         <!--begin::Actions-->
 
                                         <button type="submit" data-toggle="modal"
-                                            data-target="#modalReserv{{ $materiel->id }}"
+                                            data-target="#modalReserv{{ $compte_materiel_select }}"
                                             class="btn btn-sm btn-clean font-weight-bold font-size-base mr-1">Réserver
                                             ></button>
 
                                         <!-- begin::Modal -->
-                                        <div class="modal fade" id="modalReserv{{ $materiel->id }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="modalReservTitle" aria-hidden="true">
+                                        <div class="modal fade" id="modalReserv{{ $compte_materiel_select }}"
+                                            tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable w-100" role="document">
                                                 <div class="modal-content" style="min-width: 600px">
                                                     <form method="POST" class="form"
@@ -279,9 +296,9 @@
                                                                 <div class="form-group">
                                                                     <label>Nom de la réservation *</label>
                                                                     <?php
-                                                                    $name_reserv = Auth::user()->name . '-reserv';
+                                                                    $name_reserv = Auth::user()->name . '-reserv-' . rand(100, 5000);
                                                                     ?>
-                                                                    <input type="text" name="nom"
+                                                                    <input type="text" name="nom" required
                                                                         value="{{ $name_reserv }}"
                                                                         class="form-control form-control-solid"
                                                                         placeholder="Entrez un nom pour votre réservation" />
@@ -297,8 +314,8 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <?php $compte_materiel_select++; ?>
-                                                                    <label>Matériel à réserver *</label><select
+
+                                                                    <label>Matériel à réserver *</label><select required
                                                                         id="materiaux_select{{ $compte_materiel_select }}"
                                                                         name="materiel_id" class="materiaux_select"
                                                                         placeholder="Choisissez le matériel...">
@@ -311,20 +328,21 @@
                                                                     </select>
                                                                 </div>
 
+                                                                <?php $compte_datetimepicker++; ?>
                                                                 <label>Date de réservation *</label>
                                                                 <div class="form-group row">
                                                                     <div class="col">
                                                                         <div class="date_reserv_1 input-group date"
-                                                                            id="datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                            id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
-                                                                            <input name="date_debut"
+                                                                            <input name="date_debut" required
                                                                                 value="{{ date('m/d/Y', strtotime(now())) . ' 7:00 AM' }}"
                                                                                 type="text"
                                                                                 class="form-control datetimepicker-input"
                                                                                 placeholder="Date de début"
-                                                                                data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}" />
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}" />
                                                                             <div class="input-group-append"
-                                                                                data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                                 data-toggle="datetimepicker">
                                                                                 <span class="input-group-text">
                                                                                     <i class="ki ki-calendar"></i>
@@ -334,16 +352,16 @@
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="date_reserv_2 input-group date"
-                                                                            id="datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                            id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
-                                                                            <input name="date_fin"
+                                                                            <input name="date_fin" required
                                                                                 value="{{ date('m/d/Y', strtotime(now())) . ' 10:00 AM' }}"
                                                                                 type="text"
                                                                                 class="form-control datetimepicker-input"
                                                                                 placeholder="Date de fin"
-                                                                                data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}" />
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}" />
                                                                             <div class="input-group-append"
-                                                                                data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                                 data-toggle="datetimepicker">
                                                                                 <span class="input-group-text">
                                                                                     <i class="ki ki-calendar"></i>
@@ -414,7 +432,7 @@
 
                         <?php $materiaux_reserv = []; ?>
                         @foreach ($materiaux as $materiel)
-                            @foreach ($materiel->reservations as $reservation)
+                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now() . '+1 day')))
                                     <?php $materiaux_reserv[] = $materiel; ?>
                                 @endif
@@ -422,7 +440,8 @@
                         @endforeach
 
                         @foreach (array_unique($materiaux_reserv) as $materiel)
-                            <div class="card card-custom mb-5" style="box-shadow: 0px 0px 0px 0px !important;">
+                            <?php $compte_materiel_select++; ?> <div class="card card-custom mb-5"
+                                style="box-shadow: 0px 0px 0px 0px !important;">
                                 <!--begin::Header-->
                                 <div class="border-0 px-5 pt-5">
                                     <h6 class="">
@@ -435,7 +454,7 @@
                                     <!--begin: Item-->
                                     <div class="d-flex flex-lg-fill">
                                         <div class="symbol-group symbol-hover">
-                                            @foreach ($materiel->reservations as $reservation)
+                                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now() . '+1 day')))
                                                     <div class="symbol symbol-30 symbol-circle" data-toggle="tooltip"
                                                         title="{{ $reservation->user->name }}">
@@ -460,13 +479,14 @@
                                         <!--begin::Actions-->
 
                                         <button type="submit" data-toggle="modal"
-                                            data-target="#modalReserv{{ $materiel->id }}"
+                                            data-target="#modalReserv{{ $compte_materiel_select }}"
                                             class="btn btn-sm btn-clean font-weight-bold font-size-base mr-1">Réserver
                                             ></button>
 
                                         <!-- begin::Modal -->
-                                        <div class="modal fade" id="modalReserv{{ $materiel->id }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="modalReservTitle" aria-hidden="true">
+                                        <div class="modal fade" id="modalReserv{{ $compte_materiel_select }}"
+                                            tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content" style="min-width: 600px">
                                                     <form method="POST" class="form"
@@ -487,9 +507,9 @@
                                                                 <div class="form-group">
                                                                     <label>Nom de la réservation *</label>
                                                                     <?php
-                                                                    $name_reserv = Auth::user()->name . '-reserv';
+                                                                    $name_reserv = Auth::user()->name . '-reserv-' . rand(100, 5000);
                                                                     ?>
-                                                                    <input type="text" name="nom"
+                                                                    <input type="text" name="nom" required
                                                                         value="{{ $name_reserv }}"
                                                                         class="form-control form-control-solid"
                                                                         placeholder="Entrez un nom pour votre réservation" />
@@ -505,8 +525,8 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <?php $compte_materiel_select++; ?>
-                                                                    <label>Matériel à réserver *</label><select
+
+                                                                    <label>Matériel à réserver *</label><select required
                                                                         id="materiaux_select{{ $compte_materiel_select }}"
                                                                         name="materiel_id" class="materiaux_select"
                                                                         placeholder="Choisissez le matériel...">
@@ -519,20 +539,21 @@
                                                                     </select>
                                                                 </div>
 
+                                                                <?php $compte_datetimepicker++; ?>
                                                                 <label>Date de réservation *</label>
                                                                 <div class="form-group row">
                                                                     <div class="col">
                                                                         <div class="date_reserv_1 input-group date"
-                                                                            id="datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                            id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
-                                                                            <input name="date_debut"
+                                                                            <input name="date_debut" required
                                                                                 value="{{ date('m/d/Y', strtotime(now() . '+1 days')) . ' 7:00 AM' }}"
                                                                                 type="text"
                                                                                 class="form-control datetimepicker-input"
                                                                                 placeholder="Date de début"
-                                                                                data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}" />
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}" />
                                                                             <div class="input-group-append"
-                                                                                data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                                 data-toggle="datetimepicker">
                                                                                 <span class="input-group-text">
                                                                                     <i class="ki ki-calendar"></i>
@@ -542,16 +563,16 @@
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="date_reserv_2 input-group date"
-                                                                            id="datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                            id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
-                                                                            <input name="date_fin"
+                                                                            <input name="date_fin" required
                                                                                 value="{{ date('m/d/Y', strtotime(now() . '+1 days')) . ' 10:00 AM' }}"
                                                                                 type="text"
                                                                                 class="form-control datetimepicker-input"
                                                                                 placeholder="Date de fin"
-                                                                                data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}" />
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}" />
                                                                             <div class="input-group-append"
-                                                                                data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                                 data-toggle="datetimepicker">
                                                                                 <span class="input-group-text">
                                                                                     <i class="ki ki-calendar"></i>
@@ -622,7 +643,7 @@
 
                         <?php $materiaux_reserv = []; ?>
                         @foreach ($materiaux as $materiel)
-                            @foreach ($materiel->reservations as $reservation)
+                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now() . '+2 day')))
                                     <?php $materiaux_reserv[] = $materiel; ?>
                                 @endif
@@ -630,7 +651,8 @@
                         @endforeach
 
                         @foreach (array_unique($materiaux_reserv) as $materiel)
-                            <div class="card card-custom mb-5" style="box-shadow: 0px 0px 0px 0px !important;">
+                            <?php $compte_materiel_select++; ?> <div class="card card-custom mb-5"
+                                style="box-shadow: 0px 0px 0px 0px !important;">
                                 <!--begin::Header-->
                                 <div class="border-0 px-5 pt-5">
                                     <h6 class="">
@@ -643,7 +665,7 @@
                                     <!--begin: Item-->
                                     <div class="d-flex flex-lg-fill">
                                         <div class="symbol-group symbol-hover">
-                                            @foreach ($materiel->reservations as $reservation)
+                                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now() . '+2 day')))
                                                     <div class="symbol symbol-30 symbol-circle" data-toggle="tooltip"
                                                         title="{{ $reservation->user->name }}">
@@ -668,13 +690,14 @@
                                         <!--begin::Actions-->
 
                                         <button type="submit" data-toggle="modal"
-                                            data-target="#modalReserv{{ $materiel->id }}"
+                                            data-target="#modalReserv{{ $compte_materiel_select }}"
                                             class="btn btn-sm btn-clean font-weight-bold font-size-base mr-1">Réserver
                                             ></button>
 
                                         <!-- begin::Modal -->
-                                        <div class="modal fade" id="modalReserv{{ $materiel->id }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="modalReservTitle" aria-hidden="true">
+                                        <div class="modal fade" id="modalReserv{{ $compte_materiel_select }}"
+                                            tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content" style="min-width: 600px">
                                                     <form method="POST" class="form"
@@ -695,9 +718,9 @@
                                                                 <div class="form-group">
                                                                     <label>Nom de la réservation *</label>
                                                                     <?php
-                                                                    $name_reserv = Auth::user()->name . '-reserv';
+                                                                    $name_reserv = Auth::user()->name . '-reserv-' . rand(100, 5000);
                                                                     ?>
-                                                                    <input type="text" name="nom"
+                                                                    <input type="text" name="nom" required
                                                                         value="{{ $name_reserv }}"
                                                                         class="form-control form-control-solid"
                                                                         placeholder="Entrez un nom pour votre réservation" />
@@ -713,8 +736,8 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <?php $compte_materiel_select++; ?>
-                                                                    <label>Matériel à réserver *</label><select
+
+                                                                    <label>Matériel à réserver *</label><select required
                                                                         id="materiaux_select{{ $compte_materiel_select }}"
                                                                         name="materiel_id" class="materiaux_select"
                                                                         placeholder="Choisissez le matériel...">
@@ -727,20 +750,21 @@
                                                                     </select>
                                                                 </div>
 
+                                                                <?php $compte_datetimepicker++; ?>
                                                                 <label>Date de réservation *</label>
                                                                 <div class="form-group row">
                                                                     <div class="col">
                                                                         <div class="date_reserv_1 input-group date"
-                                                                            id="datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                            id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
-                                                                            <input name="date_debut"
+                                                                            <input name="date_debut" required
                                                                                 value="{{ date('m/d/Y', strtotime(now() . '+2 days')) . ' 7:00 AM' }}"
                                                                                 type="text"
                                                                                 class="form-control datetimepicker-input"
                                                                                 placeholder="Date de début"
-                                                                                data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}" />
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}" />
                                                                             <div class="input-group-append"
-                                                                                data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                                 data-toggle="datetimepicker">
                                                                                 <span class="input-group-text">
                                                                                     <i class="ki ki-calendar"></i>
@@ -750,16 +774,16 @@
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="date_reserv_2 input-group date"
-                                                                            id="datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                            id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
-                                                                            <input name="date_fin"
+                                                                            <input name="date_fin" required
                                                                                 value="{{ date('m/d/Y', strtotime(now() . '+2 days')) . ' 10:00 AM' }}"
                                                                                 type="text"
                                                                                 class="form-control datetimepicker-input"
                                                                                 placeholder="Date de fin"
-                                                                                data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}" />
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}" />
                                                                             <div class="input-group-append"
-                                                                                data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                                 data-toggle="datetimepicker">
                                                                                 <span class="input-group-text">
                                                                                     <i class="ki ki-calendar"></i>
@@ -831,7 +855,7 @@
 
                         <?php $materiaux_reserv = []; ?>
                         @foreach ($materiaux as $materiel)
-                            @foreach ($materiel->reservations as $reservation)
+                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now() . ' +3 day')))
                                     <?php $materiaux_reserv[] = $materiel; ?>
                                 @endif
@@ -839,7 +863,8 @@
                         @endforeach
 
                         @foreach (array_unique($materiaux_reserv) as $materiel)
-                            <div class="card card-custom mb-5" style="box-shadow: 0px 0px 0px 0px !important;">
+                            <?php $compte_materiel_select++; ?> <div class="card card-custom mb-5"
+                                style="box-shadow: 0px 0px 0px 0px !important;">
                                 <!--begin::Header-->
                                 <div class="border-0 px-5 pt-5">
                                     <h6 class="">
@@ -852,7 +877,7 @@
                                     <!--begin: Item-->
                                     <div class="d-flex flex-lg-fill">
                                         <div class="symbol-group symbol-hover">
-                                            @foreach ($materiel->reservations as $reservation)
+                                            @foreach ($materiel->reservations->where('date_debut', '>=', now()) as $reservation)
                                                 @if (date('Y-m-d', strtotime($reservation->date_debut)) == date('Y-m-d', strtotime(now() . ' +3 day')))
                                                     <div class="symbol symbol-30 symbol-circle" data-toggle="tooltip"
                                                         title="{{ $reservation->user->name }}">
@@ -877,13 +902,14 @@
                                         <!--begin::Actions-->
 
                                         <button type="submit" data-toggle="modal"
-                                            data-target="#modalReserv{{ $materiel->id }}"
+                                            data-target="#modalReserv{{ $compte_materiel_select }}"
                                             class="btn btn-sm btn-clean font-weight-bold font-size-base mr-1">Réserver
                                             ></button>
 
                                         <!-- begin::Modal -->
-                                        <div class="modal fade" id="modalReserv{{ $materiel->id }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="modalReservTitle" aria-hidden="true">
+                                        <div class="modal fade" id="modalReserv{{ $compte_materiel_select }}"
+                                            tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content" style="min-width: 600px">
                                                     <form method="POST" class="form"
@@ -905,9 +931,9 @@
                                                                     <div class="form-group">
                                                                         <label>Nom de la réservation *</label>
                                                                         <?php
-                                                                        $name_reserv = Auth::user()->name . '-reserv';
+                                                                        $name_reserv = Auth::user()->name . '-reserv-' . rand(100, 5000);
                                                                         ?>
-                                                                        <input type="text" name="nom"
+                                                                        <input type="text" name="nom" required
                                                                             value="{{ $name_reserv }}"
                                                                             class="form-control form-control-solid"
                                                                             placeholder="Entrez un nom pour votre réservation" />
@@ -923,8 +949,8 @@
                                                                     </div>
 
                                                                     <div class="form-group">
-                                                                        <?php $compte_materiel_select++; ?>
-                                                                        <label>Matériel à réserver *</label><select
+
+                                                                        <label>Matériel à réserver *</label><select required
                                                                             id="materiaux_select{{ $compte_materiel_select }}"
                                                                             name="materiel_id" class="materiaux_select"
                                                                             placeholder="Choisissez le matériel...">
@@ -938,20 +964,21 @@
                                                                         </select>
                                                                     </div>
 
+                                                                    <?php $compte_datetimepicker++; ?>
                                                                     <label>Date de réservation *</label>
                                                                     <div class="form-group row">
                                                                         <div class="col">
                                                                             <div class="date_reserv_1 input-group date"
-                                                                                id="datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                                id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                                 data-target-input="nearest">
-                                                                                <input name="date_debut"
+                                                                                <input name="date_debut" required
                                                                                     value="{{ date('m/d/Y', strtotime(now() . '+3 days')) . ' 7:00 AM' }}"
                                                                                     type="text"
                                                                                     class="form-control datetimepicker-input"
                                                                                     placeholder="Date de début"
-                                                                                    data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}" />
+                                                                                    data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}" />
                                                                                 <div class="input-group-append"
-                                                                                    data-target="#datetimepicker_reserv_1{{ $materiel->reservations->first->get()->id }}"
+                                                                                    data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                                     data-toggle="datetimepicker">
                                                                                     <span class="input-group-text">
                                                                                         <i class="ki ki-calendar"></i>
@@ -961,16 +988,16 @@
                                                                         </div>
                                                                         <div class="col">
                                                                             <div class="date_reserv_2 input-group date"
-                                                                                id="datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                                id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                                 data-target-input="nearest">
-                                                                                <input name="date_fin"
+                                                                                <input name="date_fin" required
                                                                                     value="{{ date('m/d/Y', strtotime(now() . '+3 days')) . ' 10:00 AM' }}"
                                                                                     type="text"
                                                                                     class="form-control datetimepicker-input"
                                                                                     placeholder="Date de fin"
-                                                                                    data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}" />
+                                                                                    data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}" />
                                                                                 <div class="input-group-append"
-                                                                                    data-target="#datetimepicker_reserv_2{{ $materiel->reservations->first->get()->id }}"
+                                                                                    data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                                     data-toggle="datetimepicker">
                                                                                     <span class="input-group-text">
                                                                                         <i class="ki ki-calendar"></i>
@@ -1077,6 +1104,8 @@
                     var id_1 = '#' + date_reserv_1[i].getAttribute('id');
                     var id_2 = '#' + date_reserv_2[i].getAttribute('id');
 
+                    console.log(id_1);
+
                     // Demo 7
                     $(id_1).datetimepicker();
                     $(id_2).datetimepicker({
@@ -1141,12 +1170,14 @@
     <script>
         var statut_insert_reserv_success = document.getElementById('statut_insert_reserv_success');
         var statut_insert_reserv_failled = document.getElementById('statut_insert_reserv_failled');
+        var statut_insert_reserv_date_error = document.getElementById('statut_insert_reserv_date_error');
+        var statut_insert_reserv_materiel_no_found = document.getElementById('statut_insert_reserv_materiel_no_found');
 
         if (statut_insert_reserv_success != null) {
 
 
             toastr.options = {
-                "closeButton": false,
+                "closeButton": true,
                 "debug": false,
                 "newestOnTop": false,
                 "progressBar": false,
@@ -1165,11 +1196,34 @@
 
             toastr.success("Votre réservation à été éffectué !");
 
-        }else if(statut_insert_reserv_failled != null) {
+        } else if (statut_insert_reserv_failled != null) {
+
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr.error("Erreur lors de la réservation !");
+
+        }else if(statut_insert_reserv_date_error != null){
 
             
             toastr.options = {
-            "closeButton": false,
+            "closeButton": true,
             "debug": false,
             "newestOnTop": false,
             "progressBar": false,
@@ -1186,7 +1240,30 @@
             "hideMethod": "fadeOut"
             };
 
-            toastr.error("Erreur lors de la réservation !");
+            toastr.error("Date de réservation incorrect !");
+
+        }else if(statut_insert_reserv_materiel_no_found != null){
+
+            
+            toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            };
+
+            toastr.error("Le materiel n'est pas disponible dans le délai imparti !");
 
         }
     </script>

@@ -174,9 +174,9 @@
                             <div class="form-group">
                                 <label>Nom de la réservation *</label>
                                 <?php
-                                $name_reserv = Auth::user()->name . '-reserv';
+                                $name_reserv = Auth::user()->name . '-reserv-' . rand(100, 5000);
                                 ?>
-                                <input type="text" name="nom" value="{{ $name_reserv }}" class="form-control form-control-solid"
+                                <input required type="text" name="nom" value="{{ $name_reserv }}" class="form-control form-control-solid"
                                     placeholder="Entrez un nom pour votre réservation" />
                             </div>
 
@@ -189,7 +189,7 @@
                             </div>
 
                             <div class="form-group">
-                                <select name="materiel_id" class="" id="materiaux" placeholder="Choisissez le matériel...">
+                                <select required name="materiel_id" class="" id="materiaux" placeholder="Choisissez le matériel...">
                                     <option value="">Select a materiel...</option>
                                     @foreach ($materiaux as $materiel)
                                         <option <?php echo ($request->materiel_id == $materiel->id)? 'selected' : '' ?> value="{{ $materiel->id }}">{{ $materiel->nom }}</option>
@@ -201,7 +201,7 @@
                             <div class="form-group row">
                                 <div class="col">
                                     <div class="input-group date" id="kt_datetimepicker_7_1" data-target-input="nearest">
-                                        <input name="date_debut" type="text" class="form-control datetimepicker-input"
+                                        <input required name="date_debut" type="text" class="form-control datetimepicker-input"
                                             placeholder="Date de début" data-target="#kt_datetimepicker_7_1" />
                                         <div class="input-group-append" data-target="#kt_datetimepicker_7_1"
                                             data-toggle="datetimepicker">
@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="input-group date" id="kt_datetimepicker_7_2" data-target-input="nearest">
-                                        <input name="date_fin" type="text" class="form-control datetimepicker-input" placeholder="Date de fin"
+                                        <input required name="date_fin" type="text" class="form-control datetimepicker-input" placeholder="Date de fin"
                                             data-target="#kt_datetimepicker_7_2" />
                                         <div class="input-group-append" data-target="#kt_datetimepicker_7_2"
                                             data-toggle="datetimepicker">

@@ -55,19 +55,52 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $reservation = Reservation::create([
-            'nom' => $request->nom,
-            'description' => $request->description,
-            'date_debut' => date('Y-m-d H:i:s', strtotime($request->date_debut)),
-            'date_fin' => date('Y-m-d H:i:s', strtotime($request->date_fin)),
-            'materiel_id' => $request->materiel_id,
-            'user_id' => $request->user_id,
-        ]);
 
-        if($reservation){
-            $statut_insert_reserv = 'insérer';
+        $control_reserv = DB::table('reservations')
+            ->where('materiel_id', $request->materiel_id)
+            ->where('date_debut', '>=', date('Y-m-d H:i:s', strtotime($request->date_debut)))
+            ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime($request->date_fin)))
+            ->orWhere(function($query) {
+                global $request;
+                $query->where('date_fin', '>=', date('Y-m-d H:i:s', strtotime($request->date_debut)))
+                      ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime($request->date_fin)))
+                      ->where('materiel_id', $request->materiel_id);
+            })
+            ->get();
+
+        $materiel_reserv = Materiel::find($request->materiel_id);
+
+        // Si la date de réservation est supérieure à la date courante et 
+        // le nombre de matériels en utilisation est inférieure à la qte disponible
+
+        if( strtotime($request->date_debut) > strtotime(now()) && $control_reserv->count() < $materiel_reserv->qte ){
+
+            $reservation = Reservation::create([
+                'nom' => $request->nom,
+                'description' => $request->description,
+                'date_debut' => date('Y-m-d H:i:s', strtotime($request->date_debut)),
+                'date_fin' => date('Y-m-d H:i:s', strtotime($request->date_fin)),
+                'materiel_id' => $request->materiel_id,
+                'user_id' => $request->user_id,
+            ]);
+
+            if($reservation){
+                $statut_insert_reserv = 'insérer';
+            }else{
+                $statut_insert_reserv = 'non insérer';
+            }
+
         }else{
-            $statut_insert_reserv = 'non insérer';
+
+            if(strtotime($request->date_debut) < strtotime(now())){
+
+                $statut_insert_reserv = 'date error';
+            }else{
+                $statut_insert_reserv = 'materiel no found';
+            }
+
+
+
         }
 
         $categories = Categorie::all();

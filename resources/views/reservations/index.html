@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hello {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div-hover">
+        Mon premier paragraphe <span><button class="hello" id="hello_1">Hello</button></span>
+    </div>
+    <div class="div-hover">
+        Mon premier paragraphe <span><button class="hello" id="hello_2">Hello</button></span>
+    </div>
+
+
+    <script>
+        var div = document.getElementsByClassName('div-hover');
+        var hello = document.getElementsByClassName('hello');
+
+        for (let i = 0; i < div.length; i++) {
+
+            div[i].addEventListener('mouseover', function(event) {
+
+                hello[i].style.display = 'block';
+
+            });
+
+            div[i].addEventListener('mouseout', function(event) {
+
+                hello[i].style.display = 'none';
+
+            });
+
+        }
+    </script>
+</body>
+
+</html>
