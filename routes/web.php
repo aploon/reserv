@@ -23,6 +23,10 @@ Route::get('/', [HomeController::class, 'index'])
 Route::resource('materiaux', MaterielController::class)
     ->middleware(['auth']);
 
+Route::get('reservations/mes_reservations', [ReservationController::class, 'mes_reservations'])
+->middleware(['auth'])
+->name('reservations.mes_reservations');
+
 Route::resource('reservations', ReservationController::class)
     ->only(['index', 'store', 'show', 'edit', 'update', 'destroy'])
     ->middleware(['auth']);

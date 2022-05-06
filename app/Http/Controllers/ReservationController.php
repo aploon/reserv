@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ReservationsDataTable;
 use App\Models\Categorie;
 use App\Models\Materiel;
 use App\Models\Reservation;
@@ -27,6 +28,14 @@ class ReservationController extends Controller
             'reservations' => $reservations,
             'materiaux' => $materiaux
         ]);
+    }
+
+    public function mes_reservations(ReservationsDataTable $dataTable){
+
+        //$dataTable = new ReservationsDataTable(); 
+
+        return $dataTable->render('reservations.mes_reservations');
+
     }
 
     /**
@@ -73,6 +82,7 @@ class ReservationController extends Controller
         // Si la date de réservation est supérieure à la date courante et 
         // le nombre de matériels en utilisation est inférieure à la qte disponible
 
+        // @ts-ignore
         if( strtotime($request->date_debut) > strtotime(now()) && $control_reserv->count() < $materiel_reserv->qte ){
 
             $reservation = Reservation::create([
