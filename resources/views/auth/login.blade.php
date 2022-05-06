@@ -141,9 +141,9 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="d-flex flex-column-fluid flex-center">
                     <!--begin::Signin-->
                     <div class="login-form login-signin">
-                        <x-guest-layout>
-                            <x-slot name="logo">
-                            </x-slot>
+                        {{-- <x-guest-layout> --}}
+                            {{-- <x-slot name="logo">
+                            </x-slot> --}}
             
                             <!-- Session Status -->
                             <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -210,7 +210,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <!--end::Action-->
                             </form>
-                        </x-guest-layout>
+                        {{-- </x-guest-layout> --}}
                     </div>
                     <!--end::Signin-->
                 </div>

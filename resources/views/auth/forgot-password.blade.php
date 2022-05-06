@@ -141,9 +141,9 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="d-flex flex-column-fluid flex-center">
                     <!--begin::Signin-->
                     <div class="login-form login-forgot">
-                        <x-guest-layout>
+                        {{-- <x-guest-layout>
                             <x-slot name="logo">
-                            </x-slot>
+                            </x-slot> --}}
             
                             <!-- Session Status -->
                             <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -167,15 +167,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <!--end::Form group-->
                                 <!--begin::Form group-->
-                            <div class="form-group d-flex flex-wrap pb-lg-0">
-                                <button type="button" id="kt_login_forgot_submit"
-                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Submit</button>
-                                <a href="{{ Route('login') }}"><button type="button" id="kt_login_forgot_cancel_off"
-                                    class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Annuler</button></a>
-                            </div>
-                            <!--end::Form group-->
+                                <div class="form-group d-flex flex-wrap pb-lg-0">
+                                    <button type="button" id="kt_login_forgot_submit"
+                                        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Submit</button>
+                                    <a href="{{ Route('login') }}"><button type="button" id="kt_login_forgot_cancel_off"
+                                        class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Annuler</button></a>
+                                </div>
+                                <!--end::Form group-->
                             </form>
-                        </x-guest-layout>
+                        {{-- </x-guest-layout> --}}
                     </div>
                     <!--end::Signin-->
                 </div>
