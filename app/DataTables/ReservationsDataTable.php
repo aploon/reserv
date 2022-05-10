@@ -3,6 +3,9 @@
 namespace App\DataTables;
 
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -18,10 +21,22 @@ class ReservationsDataTable extends DataTable
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
-    {
+    {   
         return datatables()
-            ->eloquent($query)
-            ->addColumn('action', 'reservations.action');
+        // DB::table('reservations')->where('user_id', Auth::id())
+            ->eloquent(Reservation::where('user_id', Auth::id())->where('date_debut', '>', date('Y-m-d H:i:s', strtotime(now()))))
+            ->addColumn('action', function($reservation){
+                return '
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Actions
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button data-toggle="modal" data-target="#reserv_modal" id="" class="update_reserv dropdown-item" data-id="' . $reservation->id . '">Modifier</button>
+                        <button id="" class="delete_reserv dropdown-item" data-id="' . $reservation->id . '">Annuler</button>
+                    </div>
+                </div>';
+            });
     }
 
     /**
@@ -65,20 +80,15 @@ class ReservationsDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('id'),
+            Column::make('nom'),
+            Column::make('date_debut'),
+            Column::make('date_fin'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('nom'),
-            Column::make('description'),
-            Column::make('date_debut'),
-            Column::make('date_fin'),
-            Column::make('materiel_id'),
-            Column::make('user_id'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
         ];
     }
 

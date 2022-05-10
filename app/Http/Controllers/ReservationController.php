@@ -8,7 +8,9 @@ use App\Models\Materiel;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 
 class ReservationController extends Controller
 {
@@ -30,11 +32,21 @@ class ReservationController extends Controller
         ]);
     }
 
-    public function mes_reservations(ReservationsDataTable $dataTable){
+    public function mes_reservations(ReservationsDataTable $dataTable)
+    {
 
-        //$dataTable = new ReservationsDataTable(); 
+        $categories = Categorie::all();
 
-        return $dataTable->render('reservations.mes_reservations');
+        return $dataTable->render('reservations.mes_reservations', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function fullcalendar_reserv(){
+
+        $reservations = Reservation::all();
+
+        return json_encode($reservations);
 
     }
 
@@ -69,11 +81,11 @@ class ReservationController extends Controller
             ->where('materiel_id', $request->materiel_id)
             ->where('date_debut', '>=', date('Y-m-d H:i:s', strtotime($request->date_debut)))
             ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime($request->date_fin)))
-            ->orWhere(function($query) {
+            ->orWhere(function ($query) {
                 global $request;
                 $query->where('date_fin', '>=', date('Y-m-d H:i:s', strtotime($request->date_debut)))
-                      ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime($request->date_fin)))
-                      ->where('materiel_id', $request->materiel_id);
+                    ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime($request->date_fin)))
+                    ->where('materiel_id', $request->materiel_id);
             })
             ->get();
 
@@ -82,8 +94,7 @@ class ReservationController extends Controller
         // Si la date de réservation est supérieure à la date courante et 
         // le nombre de matériels en utilisation est inférieure à la qte disponible
 
-        // @ts-ignore
-        if( strtotime($request->date_debut) > strtotime(now()) && $control_reserv->count() < $materiel_reserv->qte ){
+        if (strtotime($request->date_debut) > strtotime(now()) && $control_reserv->count() < $materiel_reserv->qte) {
 
             $reservation = Reservation::create([
                 'nom' => $request->nom,
@@ -94,23 +105,19 @@ class ReservationController extends Controller
                 'user_id' => $request->user_id,
             ]);
 
-            if($reservation){
+            if ($reservation) {
                 $statut_insert_reserv = 'insérer';
-            }else{
+            } else {
                 $statut_insert_reserv = 'non insérer';
             }
+        } else {
 
-        }else{
-
-            if(strtotime($request->date_debut) < strtotime(now())){
+            if (strtotime($request->date_debut) < strtotime(now())) {
 
                 $statut_insert_reserv = 'date error';
-            }else{
+            } else {
                 $statut_insert_reserv = 'materiel no found';
             }
-
-
-
         }
 
         $categories = Categorie::all();
@@ -123,7 +130,6 @@ class ReservationController extends Controller
             'materiaux' => $materiaux,
             'statut_insert_reserv' => $statut_insert_reserv
         ]);
-
     }
 
     /**
@@ -145,7 +151,18 @@ class ReservationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reservation = Reservation::find($id);
+        $output = [];
+
+
+        $output[] = $reservation->nom;
+        $output[] = $reservation->description;
+        $output[] = $reservation->materiel->id;
+        $output[] = $reservation->materiel->nom;
+        $output[] = date('m/d/Y g:i A', strtotime($reservation->date_debut));
+        $output[] = date('m/d/Y g:i A', strtotime($reservation->date_fin));
+
+        return json_encode($output);
     }
 
     /**
@@ -157,7 +174,52 @@ class ReservationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $control_reserv = DB::table('reservations')
+            ->where('materiel_id', $request->materiel_id)
+            ->where('date_debut', '>=', date('Y-m-d H:i:s', strtotime($request->date_debut)))
+            ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime($request->date_fin)))
+            ->orWhere(function ($query) {
+                global $request;
+                $query->where('date_fin', '>=', date('Y-m-d H:i:s', strtotime($request->date_debut)))
+                    ->where('date_debut', '<=', date('Y-m-d H:i:s', strtotime($request->date_fin)))
+                    ->where('materiel_id', $request->materiel_id);
+            })
+            ->get();
+
+        $materiel_reserv = Materiel::find($request->materiel_id);
+
+        // Si la date de réservation est supérieure à la date courante et 
+        // le nombre de matériels en utilisation est inférieure à la qte disponible
+
+        if (strtotime($request->date_debut) > strtotime(now()) && $control_reserv->count() <= $materiel_reserv->qte) {
+
+            $reservation = Reservation::find($id);
+
+            $reservation->nom = $request->nom;
+            $reservation->description = $request->description;
+            $reservation->date_debut = date('Y-m-d H:i:s', strtotime($request->date_debut));
+            $reservation->date_fin = date('Y-m-d H:i:s', strtotime($request->date_fin));
+            $reservation->materiel_id = $request->materiel_id;
+            $reservation->user_id = $request->user_id;
+
+            if ($reservation->save()) {
+                return json_encode('Modification effectuée !');
+            } else {
+                return json_encode('Modification non éffectuée !');
+            }
+
+        } else {
+
+            if (strtotime($request->date_debut) < strtotime(now())) {
+
+                return json_encode('date error');
+
+            } else {
+
+                return json_encode('materiel no found');
+
+            }
+        }
     }
 
     /**
@@ -168,6 +230,11 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reservation = Reservation::find($id);
+        if ($reservation->delete()) {
+            return json_encode('Réservation annulée !');
+        } else {
+            return json_encode('Erreur de suppression !');
+        }
     }
 }

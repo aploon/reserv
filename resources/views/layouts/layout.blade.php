@@ -20,23 +20,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- /Added by HTTrack -->
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&amp;l=' + l : '';
-            j.async = true;
-            j.src = '{{ asset("template/assets/www.googletagmanager.com/gtm5445.html") }}?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5FS8GGP');
-    </script>
-    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
 
     <title>@yield('title')</title>
@@ -47,9 +30,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--begin::Fonts-->
     <link rel="stylesheet" href="{{ asset("template/assets/fonts/fonts.googleapis.com/css/fonts.css?family=Poppins:300,400,500,600,700") }}" />
     <!--end::Fonts-->
-    <!--begin::Page Vendors Styles(used by this page)-->
-    <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
-    <!--end::Page Vendors Styles-->
+    
     <!--begin::Global Theme Styles(used by all pages)-->
     <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/plugins/global/plugins.bundle5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset("template/assets/theme/html/demo1/dist/assets/plugins/custom/prismjs/prismjs.bundle5883.css?v=7.2.9") }}" rel="stylesheet" type="text/css" />
@@ -87,11 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Body-->
 
 <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-		</noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    
     <!--begin::Main-->
 
     <!--begin::Header Mobile-->
@@ -253,9 +230,6 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{ asset("template/assets/theme/html/demo1/dist/assets/js/scripts.bundle5883.js?v=7.2.9") }}"></script>
     {{-- <script src="{{ asset("template/assets/keenthemes.com/metronic/assets/js/engage_code.js") }}"></script> --}}
     <!--end::Global Theme Bundle-->
-    <!--begin::Page Vendors(used by this page)-->
-    <script src="{{ asset("template/assets/theme/html/demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle5883.js?v=7.2.9") }}"></script>
-    <!--end::Page Vendors-->
     <!--begin::Page Scripts(used by this page)-->
     <script src="{{ asset("template/assets/theme/html/demo1/dist/assets/js/pages/widgets5883.js?v=7.2.9") }}"></script>
 

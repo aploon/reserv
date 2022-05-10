@@ -116,7 +116,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="menu-item <?php echo (Route::current()->getName() == 'reservations.index' || Route::current()->getName() == 'reservations.store' || Route::current()->getName() == 'reservations.create' || Route::current()->getName() == 'reservations.show' || Route::current()->getName() == 'reservations.update' || Route::current()->getName() == 'reservations.destroy' || Route::current()->getName() == 'reservations.edit') ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                <li class="menu-item <?php echo (Route::current()->getName() == 'reservations.index' || Route::current()->getName() == 'reservations.store' || Route::current()->getName() == 'reservations.create' || Route::current()->getName() == 'reservations.show' || Route::current()->getName() == 'reservations.update' || Route::current()->getName() == 'reservations.destroy' || Route::current()->getName() == 'reservations.edit' || Route::current()->getName() == 'reservations.mes_reservations') ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
                     <a href="{{ Route('reservations.index') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->

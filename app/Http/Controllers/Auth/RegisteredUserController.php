@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserImages;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -43,6 +44,12 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        $userImg = UserImages::create([
+            'nom' => $request->name . '_profil_image',
+            'chemin' => 'template/assets/theme/html/demo1/dist/assets/media/users/300_' . rand(1, 25) . '.jpg',
+            'user_id' => $user->id
         ]);
 
         event(new Registered($user));
