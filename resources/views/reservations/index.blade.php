@@ -1,6 +1,7 @@
 @extends('layouts.layout', ['categories' => $categories])
 
 @section('head-modules')
+    <?php use Illuminate\Support\Facades\DB; ?>
     <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
     <style>
         .ts-control {
@@ -63,10 +64,67 @@
 @endsection
 
 @section('main-content')
+
+    <!-- Add materiel Modal-->
+    <div class="modal fade" id="materiel_modal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdrop" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="{{ Route('materiaux.store') }}" method="POST">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="materiel_modal_label">Ajout de materiel
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i aria-hidden="true" class="ki ki-close"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nom du materiel</label>
+                            <input required type="text" name="nom" placeholder="Nom du matériel"
+                                class="form-control form-control-solid" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleTextarea">Description</label>
+                            <textarea required name="description" class="form-control form-control-solid" rows="3"
+                                placeholder="Petite description du matériel que vous souhaitez ajouter"></textarea>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label>Quantité en stock</label>
+                                <input required name="qte" type="number" class="form-control form-control-solid" />
+                            </div>
+                            <div class="col">
+                                <label>Numéro de série</label>
+                                <input name="num_serie" type="text" class="form-control form-control-solid" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Catégorie</label>
+                            <select required name="categorie_id" class="form-control form-control-solid">
+
+                                @foreach ($categories as $categorie)
+                                    <option value="{{ $categorie->id }}">
+                                        {{ $categorie->nom }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-primary font-weight-bold"
+                            data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary font-weight-bold">Modifier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
 
         @if (isset($statut_insert_reserv))
-            
             @if ($statut_insert_reserv == 'date error')
                 <input type="text" hidden id="statut_insert_reserv_date_error">
             @endif
@@ -82,9 +140,6 @@
             @if ($statut_insert_reserv == 'materiel no found')
                 <input type="text" hidden id="statut_insert_reserv_materiel_no_found">
             @endif
-
-
-            
         @endif
 
         <div class="row">
@@ -822,100 +877,98 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="POST" class="form"
-                                                                action="{{ Route('reservations.store') }}">
 
-                                                                @csrf
-                                                                <div class="form-reserv-body">
-                                                                    <div class="form-group">
-                                                                        <label>Nom de la réservation *</label>
-                                                                        <?php
-                                                                        $name_reserv = Auth::user()->name . '-reserv-' . rand(100, 5000);
-                                                                        ?>
-                                                                        <input type="text" name="nom" required
-                                                                            value="{{ $name_reserv }}"
-                                                                            class="form-control form-control-solid"
-                                                                            placeholder="Entrez un nom pour votre réservation" />
-                                                                    </div>
+                                                            @csrf
+                                                            <div class="form-reserv-body">
+                                                                <div class="form-group">
+                                                                    <label>Nom de la réservation *</label>
+                                                                    <?php
+                                                                    $name_reserv = Auth::user()->name . '-reserv-' . rand(100, 5000);
+                                                                    ?>
+                                                                    <input type="text" name="nom" required
+                                                                        value="{{ $name_reserv }}"
+                                                                        class="form-control form-control-solid"
+                                                                        placeholder="Entrez un nom pour votre réservation" />
+                                                                </div>
 
-                                                                    <div class="form-group">
-                                                                        <label>Description</label>
-                                                                        <textarea name="description" class="form-control form-control-solid" rows="3"
-                                                                            placeholder="Réservation de vidéo-projecteur pour soutenance Année-académique 2021-2022 (Informatique de gestion)"></textarea>
-                                                                        <span class="form-text text-muted">Une description
-                                                                            textuelle de l'utilité de la
-                                                                            réservation (Facultatif)</span>
-                                                                    </div>
+                                                                <div class="form-group">
+                                                                    <label>Description</label>
+                                                                    <textarea name="description" class="form-control form-control-solid" rows="3"
+                                                                        placeholder="Réservation de vidéo-projecteur pour soutenance Année-académique 2021-2022 (Informatique de gestion)"></textarea>
+                                                                    <span class="form-text text-muted">Une description
+                                                                        textuelle de l'utilité de la
+                                                                        réservation (Facultatif)</span>
+                                                                </div>
 
-                                                                    <div class="form-group">
+                                                                <div class="form-group">
 
-                                                                        <label>Matériel à réserver *</label><select required
-                                                                            id="materiaux_select{{ $compte_materiel_select }}"
-                                                                            name="materiel_id" class="materiaux_select"
-                                                                            placeholder="Choisissez le matériel...">
-                                                                            <option value="">Select a materiel...</option>
-                                                                            @foreach ($materiaux as $materiel_in_option)
-                                                                                <option <?php echo $materiel->id == $materiel_in_option->id ? 'selected' : ''; ?>
-                                                                                    value="{{ $materiel_in_option->id }}">
-                                                                                    {{ $materiel_in_option->nom }}
-                                                                                </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                    </div>
+                                                                    <label>Matériel à réserver *</label><select required
+                                                                        id="materiaux_select{{ $compte_materiel_select }}"
+                                                                        name="materiel_id" class="materiaux_select"
+                                                                        placeholder="Choisissez le matériel...">
+                                                                        <option value="">Select a materiel...</option>
+                                                                        @foreach ($materiaux as $materiel_in_option)
+                                                                            <option <?php echo $materiel->id == $materiel_in_option->id ? 'selected' : ''; ?>
+                                                                                value="{{ $materiel_in_option->id }}">
+                                                                                {{ $materiel_in_option->nom }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
 
-                                                                    <?php $compte_datetimepicker++; ?>
-                                                                    <label>Date de réservation *</label>
-                                                                    <div class="form-group row">
-                                                                        <div class="col">
-                                                                            <div class="date_reserv_1 input-group date"
-                                                                                id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
-                                                                                data-target-input="nearest">
-                                                                                <input name="date_debut" required
-                                                                                    value="{{ date('m/d/Y', strtotime(now() . '+3 days')) . ' 7:00 AM' }}"
-                                                                                    type="text"
-                                                                                    class="form-control datetimepicker-input"
-                                                                                    placeholder="Date de début"
-                                                                                    data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}" />
-                                                                                <div class="input-group-append"
-                                                                                    data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}"
-                                                                                    data-toggle="datetimepicker">
-                                                                                    <span class="input-group-text">
-                                                                                        <i class="ki ki-calendar"></i>
-                                                                                    </span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col">
-                                                                            <div class="date_reserv_2 input-group date"
-                                                                                id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
-                                                                                data-target-input="nearest">
-                                                                                <input name="date_fin" required
-                                                                                    value="{{ date('m/d/Y', strtotime(now() . '+3 days')) . ' 10:00 AM' }}"
-                                                                                    type="text"
-                                                                                    class="form-control datetimepicker-input"
-                                                                                    placeholder="Date de fin"
-                                                                                    data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}" />
-                                                                                <div class="input-group-append"
-                                                                                    data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}"
-                                                                                    data-toggle="datetimepicker">
-                                                                                    <span class="input-group-text">
-                                                                                        <i class="ki ki-calendar"></i>
-                                                                                    </span>
-                                                                                </div>
+                                                                <?php $compte_datetimepicker++; ?>
+                                                                <label>Date de réservation *</label>
+                                                                <div class="form-group row">
+                                                                    <div class="col">
+                                                                        <div class="date_reserv_1 input-group date"
+                                                                            id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
+                                                                            data-target-input="nearest">
+                                                                            <input name="date_debut" required
+                                                                                value="{{ date('m/d/Y', strtotime(now() . '+3 days')) . ' 7:00 AM' }}"
+                                                                                type="text"
+                                                                                class="form-control datetimepicker-input"
+                                                                                placeholder="Date de début"
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}" />
+                                                                            <div class="input-group-append"
+                                                                                data-target="#datetimepicker_reserv_1{{ $compte_datetimepicker }}"
+                                                                                data-toggle="datetimepicker">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="ki ki-calendar"></i>
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
-                                                                    <input type="hidden" name="user_id"
-                                                                        value="{{ Auth::user()->id }}">
-
+                                                                    <div class="col">
+                                                                        <div class="date_reserv_2 input-group date"
+                                                                            id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
+                                                                            data-target-input="nearest">
+                                                                            <input name="date_fin" required
+                                                                                value="{{ date('m/d/Y', strtotime(now() . '+3 days')) . ' 10:00 AM' }}"
+                                                                                type="text"
+                                                                                class="form-control datetimepicker-input"
+                                                                                placeholder="Date de fin"
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}" />
+                                                                            <div class="input-group-append"
+                                                                                data-target="#datetimepicker_reserv_2{{ $compte_datetimepicker }}"
+                                                                                data-toggle="datetimepicker">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="ki ki-calendar"></i>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="reset" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Annuler</button>
-                                                                    <button type="submit" class="btn btn-primary">Réserver</button>
-                                                                </div>
-                                                            </form>
+
+                                                                <input type="hidden" name="user_id"
+                                                                    value="{{ Auth::user()->id }}">
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="reset" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Annuler</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Réserver</button>
+                                                            </div>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -940,39 +993,6 @@
 
         </div>
 
-
-        <!--begin::Pagination-->
-        {{-- <div class="card card-custom">
-            <div class="card-body py-7">
-                <!--begin::Pagination-->
-                <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <div class="d-flex flex-wrap mr-3">
-                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                            <i class="ki ki-bold-double-arrow-back icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                            <i class="ki ki-bold-arrow-back icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">23</a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary active mr-2 my-1">24</a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">25</a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">26</a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">27</a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">28</a>
-                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
-                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                            <i class="ki ki-bold-arrow-next icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                            <i class="ki ki-bold-double-arrow-next icon-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                <!--end:: Pagination-->
-            </div>
-        </div> --}}
-        <!--end::Pagination-->
     </div>
 @endsection
 
@@ -1114,48 +1134,48 @@
 
             toastr.error("Erreur lors de la réservation !");
 
-        }else if(statut_insert_reserv_date_error != null){
+        } else if (statut_insert_reserv_date_error != null) {
 
-            
+
             toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             };
 
             toastr.error("Date de réservation incorrect !");
 
-        }else if(statut_insert_reserv_materiel_no_found != null){
+        } else if (statut_insert_reserv_materiel_no_found != null) {
 
-            
+
             toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             };
 
             toastr.error("Le materiel n'est pas disponible dans le délai imparti !");

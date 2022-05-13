@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ReservationsAdminDataTable;
 use App\DataTables\ReservationsDataTable;
 use App\Models\Categorie;
 use App\Models\Materiel;
@@ -38,6 +39,16 @@ class ReservationController extends Controller
         $categories = Categorie::all();
 
         return $dataTable->render('reservations.mes_reservations', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function reservations_admin(ReservationsAdminDataTable $dataTable)
+    {
+
+        $categories = Categorie::all();
+
+        return $dataTable->render('reservations.reservations-admin', [
             'categories' => $categories
         ]);
     }

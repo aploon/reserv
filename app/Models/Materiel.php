@@ -41,9 +41,9 @@ class Materiel extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function category()
+    public function categorie()
     {
-        return $this->belongsTo('App\Models\Category', 'categorie_id');
+        return $this->belongsTo('App\Models\Categorie', 'categorie_id');
     }
 
     /**

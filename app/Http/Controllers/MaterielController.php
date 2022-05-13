@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Image;
 use App\Models\Materiel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class MaterielController extends Controller
@@ -66,21 +68,124 @@ class MaterielController extends Controller
                             ->get();
                         
                         $materiel_dispo = $materiel->qte - $current_reserv->count();
+
+                        //Pour avoir le compte d'un utilisateur
+                        $user = DB::table('Users')
+                                        ->where('id', Auth::id())
+                                        ->first();
+
+                        $materiaux_html .= '
                         
-            $materiaux_html .= '<div class="div_btn_reserv row d-flex justify-content-end"
+                        <!-- Update materiel Modal-->
+                        <div class="modal fade" id="materiel_modal_' . $materiel->id . '"
+                            data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <form
+                                        action="' . Route('materiaux.update', ['materiaux' => $materiel->id]) . '"
+                                        method="POST">
+                                        <input type="hidden" name="_token" value="' . csrf_token() . '">
+                                        <input name="_method" type="hidden" value="PUT">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="materiel_modal_label">Modification
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <i aria-hidden="true" class="ki ki-close"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>Nom du materiel</label>
+                                                <input required type="text" name="nom" value="' . $materiel->nom . '"
+                                                    class="form-control form-control-solid" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleTextarea">Description</label>
+                                                <textarea required name="description" class="form-control form-control-solid"
+                                                    rows="3">' . $materiel->description . '</textarea>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col">
+                                                    <label>Quantité en stock</label>
+                                                    <input required name="qte" type="number"
+                                                        value="' . $materiel->qte . '"
+                                                        class="form-control form-control-solid" />
+                                                </div>
+                                                <div class="col">
+                                                    <label>Numéro de série</label>
+                                                    <input name="num_serie" type="text"
+                                                        value="' . $materiel->num_serie . '"
+                                                        class="form-control form-control-solid" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Catégorie</label>
+                                                <select required name="categorie_id"
+                                                    class="form-control form-control-solid">';
+                                                    
+                                                    $materiaux_html_select = '';
+                                                    $categories = Categorie::all();
+                                                    foreach ($categories as $categorie) {
+                                                        if ($categorie->nom == $materiel->categorie->nom) {
+                                                            $materiaux_html_select .= '<option selected value="' . $categorie->id . '">
+                                                                ' . $categorie->nom . '</option>';
+                                                        }else{
+                                                            $materiaux_html_select .= '<option value="' . $categorie->id . '">
+                                                                ' . $categorie->nom . '</option>';
+                                                        }
+                                                    }
+
+                                                    $materiaux_html .= $materiaux_html_select;
+
+                    $materiaux_html .=          '</select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-primary font-weight-bold"
+                                                data-dismiss="modal">Annuler</button>
+                                            <button type="submit"
+                                                class="btn btn-primary font-weight-bold">Modifier</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        ';
+
+                        if ($user->compte == 'Administrateur') {
+                            $materiaux_html .= '<div class="div_btn_reserv row d-flex justify-content-end"
                             style="position: absolute; bottom: 5px; right: 15px; display: none !important;">
-                            <button class="btn btn-light btn-text-primary btn-hover-text-primary">' . $materiel_dispo . '</button>
+                            <button class="btn btn-light btn-text-primary btn-hover-text-primary" title="Disponible actuellement">' . $materiel_dispo . '</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#materiel_modal_' . $materiel->id .'"
+                                style="margin-left: 10px">Modifier</button>
+                                    </div>
+                                </div>
+                                <!--end::Text-->
+                            </div>
+                            <!--end::Item-->';
+                        }else{
+                            $materiaux_html .= '<div class="div_btn_reserv row d-flex justify-content-end"
+                            style="position: absolute; bottom: 5px; right: 15px; display: none !important;">
+                            <button class="btn btn-light btn-text-primary btn-hover-text-primary" title="Disponible actuellement">' . $materiel_dispo . '</button>
                                 <form method="POST" action="' . Route('reservations.create') . '" class="m-0">
                                     <input type="hidden" name="_token" value="' . csrf_token() . '">
                                     <input type="text" name="materiel_id" hidden value="' . $materiel->id . '">
                                     <button type="submit"
-                                        class="btn btn-primary" style="margin-left: 10px">Réserver</button>
-                                </form>
-                        </div>
-                    </div>
-                    <!--end::Text-->
-                </div>
-                <!--end::Item-->';
+                                                class="btn btn-primary" style="margin-left: 10px">Réserver</button>
+                                        </form>
+                                </div>
+                                </div>
+                                <!--end::Text-->
+                            </div>
+                            <!--end::Item-->';
+                        }
+                        
+            
         }
 
         if($materiaux->count() <= 0){
@@ -111,7 +216,23 @@ class MaterielController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $materiel = Materiel::create([
+            'nom' => $request->nom,
+            'description' => $request->description,
+            'qte' => $request->qte,
+            'num_serie' => $request->num_serie,
+            'categorie_id' => $request->categorie_id
+        ]);
+
+        $image = Image::create([
+            'nom' => $request->nom,
+            'chemin' => 'template/assets/img/ordinateur.jpg',
+            'materiel_id' => $materiel->id
+        ]);
+
+        if($materiel && $image){
+            return back();
+        }
     }
 
     /**
@@ -153,7 +274,17 @@ class MaterielController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $materiel = Materiel::find($id);
+
+        $materiel->nom = $request->nom;
+        $materiel->description = $request->description;
+        $materiel->qte = $request->qte;
+        $materiel->num_serie = $request->num_serie;
+        $materiel->categorie_id = $request->categorie_id;
+
+        if($materiel->save()){
+            return back();
+        }
     }
 
     /**

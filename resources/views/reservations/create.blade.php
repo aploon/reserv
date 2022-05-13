@@ -87,6 +87,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Materiel *</label>
                                 <select required name="materiel_id" class="" id="materiaux" placeholder="Choisissez le matériel...">
                                     <option value="">Select a materiel...</option>
                                     @foreach ($materiaux as $materiel)
@@ -127,8 +128,8 @@
 
                         </div>
                         <div class="modal-footer">
+                            <a class="btn btn-secondary" href="{{Route('reservations.index')}}">Annuler</a>
                             <button type="submit" class="btn btn-primary mr-2">Réserver</button>
-                            <button type="reset" class="btn btn-secondary">Annuler</button>
                         </div>
                     </form>
                 </div>

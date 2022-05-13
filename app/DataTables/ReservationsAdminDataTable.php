@@ -4,15 +4,13 @@ namespace App\DataTables;
 
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ReservationsDataTable extends DataTable
+class ReservationsAdminDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,9 +19,9 @@ class ReservationsDataTable extends DataTable
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
-    {   
+    {
         return datatables()
-            ->eloquent(Reservation::where('user_id', Auth::id())->where('date_debut', '>', date('Y-m-d H:i:s', strtotime(now()))))
+            ->eloquent(Reservation::where('date_debut', '>', date('Y-m-d H:i:s', strtotime(now()))))
             ->addColumn('action', function($reservation){
                 return '
                 <div class="dropdown">
@@ -57,7 +55,7 @@ class ReservationsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('reservations-table')
+                    ->setTableId('Reservation-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -98,6 +96,6 @@ class ReservationsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Reservations_' . date('YmdHis');
+        return 'Reservation_' . date('YmdHis');
     }
 }

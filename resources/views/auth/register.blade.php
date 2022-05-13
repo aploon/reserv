@@ -187,6 +187,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <!--end::Form group-->
 
+                                <input type="hidden" name="compte" class="compte" value="Utilisateur">
+
                                 <!--begin::Form group-->
                                 <div class="form-group">
                                     <label class="checkbox mb-0">

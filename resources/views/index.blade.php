@@ -20,26 +20,102 @@
 
             </div>
             <!--end::Info-->
-            <!--begin::Toolbar-->
-            <div class="d-flex align-items-center">
-                <!--begin::Actions-->
-                <a href="{{ Route('reservations.mes_reservations') }}" class="btn btn-light btn-sm font-weight-bold font-size-base mr-2">Mes réservations</a>
 
-                <form method="POST" action="{{ Route('reservations.create') }}" class="m-0">
-                    @csrf
-                    <input type="text" name="materiel" hidden value="">
-                    <button type="submit"
-                        class="btn btn-sm btn-primary font-weight-bold font-size-base mr-1">Réserver</button>
-                </form>
-                <!--end::Actions-->
-            </div>
-            <!--end::Toolbar-->
+            <?php
+                                    
+                $user = DB::table('Users')
+                    ->where('id', Auth::id())
+                    ->first();
+                
+            ?>
+
+            @if ($user->compte == 'Administrateur')
+                <!--begin::Toolbar-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#materiel_modal">
+                    Ajouter un materiel
+                </button>
+                <!--end::Toolbar-->
+            @else
+                <!--begin::Toolbar-->
+                <div class="d-flex align-items-center">
+                    <!--begin::Actions-->
+                    <a href="{{ Route('reservations.mes_reservations') }}" class="btn btn-light btn-sm font-weight-bold font-size-base mr-2">Mes réservations</a>
+
+                    <form method="POST" action="{{ Route('reservations.create') }}" class="m-0">
+                        @csrf
+                        <input type="text" name="materiel" hidden value="">
+                        <button type="submit"
+                            class="btn btn-sm btn-primary font-weight-bold font-size-base mr-1">Réserver</button>
+                    </form>
+                    <!--end::Actions-->
+                </div>
+                <!--end::Toolbar-->
+            @endif
+
+
         </div>
     </div>
 @endsection
 
 @section('main-content')
     <div class="container">
+
+        <!-- Add materiel Modal-->
+        <div class="modal fade" id="materiel_modal" data-backdrop="static" tabindex="-1" role="dialog"
+            aria-labelledby="staticBackdrop" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form action="{{ Route('materiaux.store') }}" method="POST">
+                        @csrf
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="materiel_modal_label">Ajout de materiel
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i aria-hidden="true" class="ki ki-close"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Nom du materiel</label>
+                                <input required type="text" name="nom" placeholder="Nom du matériel"
+                                    class="form-control form-control-solid" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleTextarea">Description</label>
+                                <textarea required name="description" class="form-control form-control-solid" rows="3"
+                                    placeholder="Petite description du matériel que vous souhaitez ajouter"></textarea>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label>Quantité en stock</label>
+                                    <input required name="qte" type="number" class="form-control form-control-solid" />
+                                </div>
+                                <div class="col">
+                                    <label>Numéro de série</label>
+                                    <input name="num_serie" type="text" class="form-control form-control-solid" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Catégorie</label>
+                                <select required name="categorie_id" class="form-control form-control-solid">
+
+                                    @foreach ($categories as $categorie)
+                                        <option value="{{ $categorie->id }}">
+                                            {{ $categorie->nom }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-primary font-weight-bold"
+                                data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary font-weight-bold">Modifier</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
 
@@ -135,12 +211,12 @@
 
                         if (data[i].date_debut > TODAY) {
                             className = "fc-event-danger fc-event-solid-warning"
-                            if(data[i].date_debut > TODAY + '+02 days'){
+                            if (data[i].date_debut > TODAY + '+02 days') {
                                 className = "fc-event-danger fc-event-solid-primary"
                             }
-                        } else if(data[i].date_fin > TODAY){
+                        } else if (data[i].date_fin > TODAY) {
                             className = "fc-event-danger fc-event-solid-light"
-                        }else{
+                        } else {
                             className = "fc-event-success"
                         }
 
@@ -148,7 +224,8 @@
 
                             title: data[i].nom,
                             start: data[i].date_debut,
-                            description: (data[i].description == null)? data[i].nom : data[i].description,
+                            description: (data[i].description == null) ? data[i].nom : data[i]
+                                .description,
                             end: data[i].date_fin,
                             className: className
 
