@@ -1,5 +1,5 @@
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
-    <!--begin::Logo-->
+    <!--begin::Logo modif 1-->
     <a href="index.html">
         <img alt="Logo" src="{{ asset("template/assets/theme/html/demo1/dist/assets/media/logos/logo-light.png") }}" />
     </a>
