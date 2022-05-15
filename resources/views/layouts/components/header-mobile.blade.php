@@ -1,7 +1,7 @@
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <!--begin::Logo modif 1-->
     <a href="index.html">
-        <img alt="Logo" src="{{ asset("template/assets/theme/html/demo1/dist/assets/media/logos/logo-light.png") }}" />
+        <img class="ml-5" style="width: 65px; height: 15px;" alt="Logo" src="{{ asset("template/assets/theme/html/demo1/dist/assets/media/logos/logo-light.png") }}" />
     </a>
     <!--end::Logo-->
     <!--begin::Toolbar-->
