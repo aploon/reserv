@@ -127,8 +127,12 @@
                         <h3 class="card-label">Toutes les réservations</h3>
                     </div>
                     <div class="card-toolbar">
-                        <a href="{{ Route('reservations.index') }}" class="btn btn-light-primary font-weight-bold">
-                            <i class="ki ki-plus icon-md mr-2"></i>Reserver</a>
+                        <form method="POST" action="{{ Route('reservations.create') }}" class="m-0">
+                        @csrf
+                        <input type="text" name="materiel" hidden value="">
+                        <button type="submit"
+                            class="btn btn-light-primary font-weight-bold font-size-base mr-1"><i class="ki ki-plus icon-md mr-2"></i>Réserver</button>
+                    </form>
                     </div>
                 </div>
                 <div class="card-body">
