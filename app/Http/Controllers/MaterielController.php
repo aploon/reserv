@@ -70,7 +70,7 @@ class MaterielController extends Controller
                         $materiel_dispo = $materiel->qte - $current_reserv->count();
 
                         //Pour avoir le compte d'un utilisateur
-                        $user = DB::table('Users')
+                        $user = DB::table('users')
                                         ->where('id', Auth::id())
                                         ->first();
 

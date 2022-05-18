@@ -34,7 +34,7 @@
             <!--end::Info-->
             <?php
                                     
-                $user = DB::table('Users')
+                $user = DB::table('users')
                     ->where('id', Auth::id())
                     ->first();
                 
@@ -187,7 +187,7 @@
 
                                     <?php
                                     
-                                    $user = DB::table('Users')
+                                    $user = DB::table('users')
                                         ->where('id', Auth::id())
                                         ->first();
                                     
