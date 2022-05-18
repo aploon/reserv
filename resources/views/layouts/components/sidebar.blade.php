@@ -109,9 +109,10 @@
                                 <?php 
                                     $replace = ['É', 'é'];
                                     $replace_to = ['e', 'e'];
+                                    // $categorie_name == str_replace($replace, $replace_to, strtolower($categorie->nom))
                                 ?>
                                 
-                                <li class="menu-item <?php echo (isset($categorie_name) && $categorie_name == str_replace($replace, $replace_to, strtolower($categorie->nom))) ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                                <li class="menu-item <?php echo (isset($categorie_name) && $categorie_name == $categorie->nom_url) ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
                                     <a href="{{ Route('materiaux.show', ['materiaux' => str_replace($replace, $replace_to, strtolower($categorie->nom))]) }}" class="menu-link">
                                         <i class="menu-bullet menu-bullet-dot">
                                             <span></span>
