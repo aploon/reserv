@@ -230,8 +230,8 @@
                                         <div class="modal fade" id="modalReserv{{ $compte_materiel_select }}"
                                             tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable w-100" role="document">
-                                                <div class="modal-content" style="min-width: 600px">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content" >
                                                     <form method="POST" class="form"
                                                         action="{{ Route('reservations.store') }}">
                                                         <div class="modal-header">
@@ -285,7 +285,7 @@
                                                                 <?php $compte_datetimepicker++; ?>
                                                                 <label>Date de réservation *</label>
                                                                 <div class="form-group row">
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_1 input-group date"
                                                                             id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
@@ -304,7 +304,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_2 input-group date"
                                                                             id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
@@ -442,7 +442,7 @@
                                             tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                <div class="modal-content" style="min-width: 600px">
+                                                <div class="modal-content" >
                                                     <form method="POST" class="form"
                                                         action="{{ Route('reservations.store') }}">
                                                         <div class="modal-header">
@@ -496,7 +496,7 @@
                                                                 <?php $compte_datetimepicker++; ?>
                                                                 <label>Date de réservation *</label>
                                                                 <div class="form-group row">
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_1 input-group date"
                                                                             id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
@@ -515,7 +515,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_2 input-group date"
                                                                             id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
@@ -653,7 +653,7 @@
                                             tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                <div class="modal-content" style="min-width: 600px">
+                                                <div class="modal-content" >
                                                     <form method="POST" class="form"
                                                         action="{{ Route('reservations.store') }}">
                                                         <div class="modal-header">
@@ -707,7 +707,7 @@
                                                                 <?php $compte_datetimepicker++; ?>
                                                                 <label>Date de réservation *</label>
                                                                 <div class="form-group row">
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_1 input-group date"
                                                                             id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
@@ -726,7 +726,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_2 input-group date"
                                                                             id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
@@ -865,7 +865,7 @@
                                             tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                <div class="modal-content" style="min-width: 600px">
+                                                <div class="modal-content" >
                                                     <form method="POST" class="form"
                                                         action="{{ Route('reservations.store') }}">
                                                         <div class="modal-header">
@@ -919,7 +919,7 @@
                                                                 <?php $compte_datetimepicker++; ?>
                                                                 <label>Date de réservation *</label>
                                                                 <div class="form-group row">
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_1 input-group date"
                                                                             id="datetimepicker_reserv_1{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">
@@ -938,7 +938,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col">
+                                                                    <div class="col-lg-6 mb-3">
                                                                         <div class="date_reserv_2 input-group date"
                                                                             id="datetimepicker_reserv_2{{ $compte_datetimepicker }}"
                                                                             data-target-input="nearest">

@@ -98,7 +98,7 @@
 
                             <label>Date de réservation *</label>
                             <div class="form-group row">
-                                <div class="col">
+                                <div class="col-lg-6 mb-3">
                                     <div class="input-group date" id="kt_datetimepicker_7_1" data-target-input="nearest">
                                         <input required name="date_debut" type="text" class="form-control datetimepicker-input"
                                             placeholder="Date de début" data-target="#kt_datetimepicker_7_1" />
@@ -110,7 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-lg-6 mb-3">
                                     <div class="input-group date" id="kt_datetimepicker_7_2" data-target-input="nearest">
                                         <input required name="date_fin" type="text" class="form-control datetimepicker-input" placeholder="Date de fin"
                                             data-target="#kt_datetimepicker_7_2" />

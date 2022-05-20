@@ -385,8 +385,8 @@
             <!-- begin::Modal -->
             <div id="reserv_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalReservTitle"
                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable w-100" role="document">
-                    <div id="form_update_reserv" data-id="" class="modal-content" style="min-width: 600px">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div id="form_update_reserv" data-id="" class="modal-content" >
                         <form id="id_form_reserv_update" class="form" action="">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalScrollableTitle">
@@ -424,7 +424,7 @@
 
                                     <label>Date de réservation *</label>
                                     <div class="form-group row">
-                                        <div class="col">
+                                        <div class="col-lg-6 mb-3">
                                             <div class="date_reserv_1 input-group date" id="datetimepicker_reserv_1"
                                                 data-target-input="nearest">
                                                 <input id="date_debut_reserv" name="date_debut" required value=""
@@ -438,7 +438,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-lg-6 mb-3">
                                             <div class="date_reserv_2 input-group date" id="datetimepicker_reserv_2"
                                                 data-target-input="nearest">
                                                 <input id="date_fin_reserv" name="date_fin" required value="" type="text"
