@@ -649,7 +649,7 @@
 
                         $('#reserv_modal').modal('hide');
                         $('#id_form_reserv_update')[0].reset();
-                        Swal.fire("Modification effectuée faux !", "Réservation modifier avec succès",
+                        Swal.fire("Modification effectuée !", "Réservation modifier avec succès",
                             "success");
                     } else if (data == 'Modification non éffectuée !') {
 
