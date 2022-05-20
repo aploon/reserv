@@ -58,9 +58,9 @@
 @endsection
 
 @section('preloader')
-    {{-- <div class="" id="splash"
+    <div class="" id="splash"
     style="display: flex; align-item: center; position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(45deg,#222428,#444856);color:#fff;z-index:4000;">
-        <div class="w-100 text-center text-light">
+        {{-- <div class="w-100 text-center text-light">
             <style>
                 @keyframes r {
                     0% {
@@ -98,13 +98,13 @@
             <h1 class="font-weight-bold text-shadow" style="font-family:Trebuchet MS,Helvetica,sans-serif">Loading.io
             </h1>
             <div class="text-muted">loading.io is now loading ...</div>
-        </div>
+        </div> --}}
         <div class="m-auto w-100 text-center">
             <img class="" src="{{ asset("template/assets/img/preloader/eclipse_preloader_white.gif") }}" alt="">
             <div class="" style="font-family:Trebuchet MS,Helvetica,sans-serif; font-size: 30px; font-weight: bold;" backgound="{{ asset("template/assets/img/preloader/eclipse_preloader_white.gif") }}">Reserv</div>
         </div>
 
-    </div> --}}
+    </div>
 @endsection
 
 @section('main-content')
@@ -250,7 +250,7 @@
     <script>
         jQuery(document).ready(function() {
 
-            // $("#splash").addClass("hidden");
+            $("#splash").addClass("hidden");
 
             $.ajax({
                 url: "reservations/fullcalendar",
