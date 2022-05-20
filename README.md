@@ -40,15 +40,15 @@ Pour générer une clé unique qui sera utilisé par votre application, exécut�
 
 ### Page de connexion
 
-<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-login.gif?raw=true"></a></p>
+<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-login.png?raw=true"></a></p>
 
 ### Page d'accueil
 
-<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-accueil.gif?raw=true"></a></p>
+<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-accueil.png?raw=true"></a></p>
 
 ### Page de reservation
 
-<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-reservations.gif?raw=true"></a></p>
+<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-reservations.png?raw=true"></a></p>
 
 ## About Laravel
 
