@@ -9,7 +9,7 @@
 
 ## Reserv
 
-<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-demo.gif?raw=true" width="400"></a></p>
+<p align="center"><a href="https://reserv-ap.herokuapp.com" target="_blank"><img src="https://github.com/ArnaudAploon/Reserv/blob/main/public/readme-file/reserv-demo.gif?raw=true"></a></p>
 
 ## Comment cloner un projet laravel à partir d'un dépot github `by Aploon`
 
