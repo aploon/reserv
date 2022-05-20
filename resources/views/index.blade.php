@@ -8,6 +8,13 @@
     <link
         href="{{ asset('template/assets/theme/html/demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle5883.css?v=7.2.9') }}"
         rel="stylesheet" type="text/css" />
+        <style>
+            #splash.hidden {
+                    opacity: 0;
+                    z-index: -1;
+                    visibility: hidden;
+                }
+        </style>
 @endsection
 
 @section('subheader')
@@ -250,7 +257,7 @@
     <script>
         jQuery(document).ready(function() {
 
-            $("#splash").addClass("hidden");
+            $("#splash").remove();
 
             $.ajax({
                 url: "reservations/fullcalendar",
