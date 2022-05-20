@@ -19,9 +19,9 @@
 
 @section('subheader')
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
-        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div id="div_page_path" class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
             <!--begin::Info-->
-            <div class="d-flex align-items-center flex-wrap mr-2">
+            <div id="page_path" class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Path-->
                 <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-3">Accueil</h5>
 
@@ -183,14 +183,16 @@
                     <div class="card-title">
                         <h3 class="card-label">Toutes les réservations</h3>
                     </div>
-                    <div class="card-toolbar">
-                        <form method="POST" action="{{ Route('reservations.create') }}" class="m-0">
-                        @csrf
-                        <input type="text" name="materiel" hidden value="">
-                        <button type="submit"
-                            class="btn btn-light-primary font-weight-bold font-size-base mr-1"><i class="ki ki-plus icon-md mr-2"></i>Réserver</button>
-                    </form>
-                    </div>
+                    @if ($user->compte == 'Utilisateur')
+                        <div class="card-toolbar">
+                            <form method="POST" action="{{ Route('reservations.create') }}" class="m-0">
+                                @csrf
+                                <input type="text" name="materiel" hidden value="">
+                                <button type="submit"
+                                    class="btn btn-light-primary font-weight-bold font-size-base mr-1"><i class="ki ki-plus icon-md mr-2"></i>Réserver</button>
+                            </form>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div id="kt_calendar"></div>

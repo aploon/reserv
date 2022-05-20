@@ -77,6 +77,19 @@ License: You must have a valid license purchased only from themeforest(the above
         })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
 
+    <style>
+        @media screen and (max-width: 450px)
+        {
+            #page_path
+            {
+                display: none !important;
+            }
+            #div_page_path{
+                justify-content: end !important;
+            }
+        }
+    </style>
+
     @yield('head-modules')
 
 

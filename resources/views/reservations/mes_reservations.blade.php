@@ -3,6 +3,9 @@
 @section('head-modules')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
+        #reservations-table_wrapper{
+            overflow: auto;
+        }
         .ts-control {
             border-radius: 5.04px !important;
             background-color: #F3F6F9 !important;
@@ -192,9 +195,9 @@
 
 @section('subheader')
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
-        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div id="div_page_path" class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
             <!--begin::Info-->
-            <div class="d-flex align-items-center flex-wrap mr-2">
+            <div id="page_path" class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Path-->
                 <a href="{{ Route('dashboard') }}">
                     <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-3">Accueil</h5>
