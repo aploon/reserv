@@ -203,7 +203,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <!--begin::Form group-->
                                 <div class="form-group d-flex flex-wrap pb-lg-0 pb-3">
                                     <button type="submit" id="kt_login_signup_submit_off"
-                                        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">S'inscrire</button>
+                                        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">S'inscrire</button>
                                     <a href="{{ route('login') }}"><button type="button" id="kt_login_signup_cancel_off"
                                         class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">J'ai déja un compte !</button></a>
                                 </div>
@@ -219,7 +219,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="text-dark-50 font-size-lg font-weight-bolder mr-10">
                         <span class="mr-1">2022©</span>
                         <a href="http://keenthemes.com/metronic" target="_blank"
-                            class="text-dark-75 text-hover-primary">Keenthemes</a>
+                            class="text-dark-75 text-hover-primary">Reserv</a>
                     </div>
                     <a href="#" class="text-primary font-weight-bolder font-size-lg">Terms</a>
                     <a href="#" class="text-primary ml-5 font-weight-bolder font-size-lg">Plans</a>
