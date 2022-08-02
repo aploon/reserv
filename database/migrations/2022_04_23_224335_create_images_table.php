@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("nom");
             $table->string("chemin");
+
             $table->unsignedBigInteger("materiel_id");
             $table->foreign("materiel_id")->references("id")->on("materiels");
+            
             $table->timestamps();
         });
     }
