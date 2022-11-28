@@ -40,10 +40,10 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN  echo 'export PATH="$PATH:$HOME/.composer/vendor/bin:/root/.composer/vendor/bin:vendor/bin"' >> /root/.bashrc
 RUN  curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN  apt-get install -y nodejs
-RUN apt-get install -y libzip-dev \
+RUN apt-get install -y libzip-dev libpng-dev \
     && docker-php-ext-configure zip  \
     && docker-php-ext-install zip \
-    && docker-php-ext-install bcmath mysqli pdo pdo_mysql
+    && docker-php-ext-install bcmath mysqli pdo pdo_mysql gd
 RUN  su $USERNAME -c "composer global require laravel/installer"
 RUN  echo "alias art='php artisan'" >> /root/.bashrc && \
      echo "alias serve='php artisan serve --port=8000 --host=0.0.0.0'" >> /root/.bashrc && \
@@ -54,3 +54,5 @@ RUN  echo "alias art='php artisan'" >> /root/.bashrc && \
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
+
+# Extension
